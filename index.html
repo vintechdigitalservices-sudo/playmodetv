@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Play Mode Africa | Powered by Stream Guys</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <img src="assets/play-mode-logo.png" alt="Play Mode Africa">
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="#">Broadcasting</a></li>
+                <li><a href="#">Live Streams</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+            <div class="nav-actions">
+                <i data-lucide="search" class="search-icon"></i>
+                <button class="btn-primary">Subscribe</button>
+                <div class="hamburger" id="hamburger">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <span class="badge">Live Broadcasting</span>
+            <h1>Africa's Premier <br><span class="text-red">Media Streaming</span> Hub</h1>
+            <p>Experience seamless high-definition broadcasting and exclusive content from the heart of Africa. A Stream Guys subsidiary.</p>
+            <div class="hero-btns">
+                <button class="btn-red">View Live</button>
+                <button class="btn-outline">Explore Podcasts</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CATEGORY FILTER ===== -->
+    <div class="container">
+        <div class="category-filter">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="politics">Politics</button>
+            <button class="filter-btn" data-filter="finance">Finance</button>
+            <button class="filter-btn" data-filter="business">Business</button>
+            <button class="filter-btn" data-filter="technology">Tech</button>
+            <button class="filter-btn" data-filter="health">Health</button>
+            <button class="filter-btn" data-filter="environment">Weather</button>
+            <button class="filter-btn" data-filter="science">Discovery</button>
+        </div>
+    </div>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main class="container main-layout">
+
+        <!-- LEFT: Content Feed -->
+        <div class="content-feed">
+
+            <!-- Today's Top Stories label -->
+            <div class="feed-header">
+                <h2 class="feed-title">Today's Top Stories</h2>
+                <span class="live-dot"><span></span>Live Updates</span>
+            </div>
+
+            <!-- Featured Top Story -->
+            <div id="featured-story" class="featured-story animate-on-scroll">
+                <div class="featured-skeleton">
+                    <div class="skeleton-img"></div>
+                    <div class="skeleton-text">
+                        <div class="skeleton-line wide"></div>
+                        <div class="skeleton-line medium"></div>
+                        <div class="skeleton-line short"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mixed Grid: News + Videos -->
+            <div id="mixed-grid" class="mixed-grid">
+                <!-- Populated by JS -->
+            </div>
+
+            <!-- Loading indicator -->
+            <div id="loading-indicator" class="loading-indicator">
+                <div class="spinner"></div>
+                <span>Loading content...</span>
+            </div>
+
+        </div>
+
+        <!-- RIGHT: Sidebar -->
+        <aside class="sidebar">
+
+            <!-- Trending Videos -->
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">
+                    <i data-lucide="trending-up"></i>
+                    Trending Videos
+                </h3>
+                <div id="trending-videos" class="trending-list">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+
+            <!-- Live News Streams -->
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">
+                    <i data-lucide="radio"></i>
+                    Live News Streams
+                </h3>
+                <div id="live-streams" class="live-streams-list">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+
+        </aside>
+
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <img src="assets/play-mode-logo.png" alt="Play Mode Africa" class="footer-logo">
+                <p>Africa's leading media streaming platform. A subsidiary of Stream Guys Media.</p>
+                <div class="social-icons">
+                    <i data-lucide="facebook"></i>
+                    <i data-lucide="twitter"></i>
+                    <i data-lucide="instagram"></i>
+                    <i data-lucide="youtube"></i>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">Broadcasting</a></li>
+                    <li><a href="#">Live Streams</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">About Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Categories</h4>
+                <ul>
+                    <li><a href="#">Politics</a></li>
+                    <li><a href="#">Finance</a></li>
+                    <li><a href="#">Business</a></li>
+                    <li><a href="#">Technology</a></li>
+                    <li><a href="#">Health &amp; Climate</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="mailto:dummy@playmodeafrica.com">dummy@playmodeafrica.com</a></li>
+                    <li><a href="tel:07031114425">0703 111 4425</a></li>
+                    <li><a href="https://maps.google.com/?q=4+Presidential+drive+opposite+NOCEN+first+gate+Nsugbe+Anambra+State+Nigeria" target="_blank">4 Presidential drive, Nsugbe, Anambra, Nigeria</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Play Mode Africa. A subsidiary of <strong>Stream Guys Media</strong>.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>lucide.createIcons();</script>
+</body>
+</html>

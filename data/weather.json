@@ -1,0 +1,30 @@
+{
+  "category": "Weather",
+  "auto_feeds": [
+    { "source": "The Weather Channel", "playlist_id": "PLXUfK_V_6Y9z_M-O2F_v0p", "type": "Live Updates" },
+    { "source": "AccuWeather", "playlist_id": "UCuYqi3hOfz6-3Hdp6tEJjAg", "type": "Daily Forecast" },
+    { "source": "EUMETSAT", "playlist_id": "PLG8IrydigQfdQh6DvbGwTTixH66Nt9w-l", "type": "Satellite Earth View" }
+  ],
+  "random_bank": [
+    { "id": "KkLs5xkL_6Y", "title": "EUMETSAT Earth View – Atlantic Ocean (Live Satellite)", "source": "EUMETSAT" },
+    { "id": "U3jRSL3y8Vc", "title": "EUMETSAT Real-Time Earth View over Africa", "source": "EUMETSAT" },
+    { "id": "ia4j9yPJqjo", "title": "Nigeria’s 2026 Weather Outlook: Early Rainy Season & Temperatures", "source": "NiMet / NTA" },
+    { "id": "ODzSdVoiWEQ", "title": "NiMet Flags Rising Extreme Weather Across Nigeria", "source": "NiMet" },
+    { "id": "ffQdIatpkIE", "title": "Nigeria Daily Weather Forecast (NiMet)", "source": "Nigerian Meteorological Agency" },
+    { "id": "sL484V7u9Mk", "title": "What 10 Years Did to Earth: NASA’s New 2026 Black Marble", "source": "NASA" },
+    { "id": "vytmBNhc9ig", "title": "Live NASA ISS Earth View from Space (24/7)", "source": "NASA" },
+    { "id": "HBEfqm8f5o4", "title": "Massive Saharan Dust Storm Engulfs North Africa & Europe", "source": "News / Weather" },
+    { "id": "eumlA78gblA", "title": "Recent Severe Weather Coverage & Storm Tracking", "source": "The Weather Channel / Ryan Hall" },
+    { "id": "RpHAIgoDxUM", "title": "Global Weather Patterns & Climate Outlook 2026", "source": "Reuters / Bloomberg" },
+    { "id": "ODzSdVoiWEQ", "title": "NiMet Flags Rising Extreme Weather Across Nigeria", "source": "NiMet" },
+    { "id": "OIAkaRzN2O4", "title": "EUMETSAT Copernicus Sentinel-3 Ocean & Earth Monitoring", "source": "EUMETSAT" },
+    { "id": "zXZQXMWIGGs", "title": "Major Weather Shift & Severe Storm Risks Update", "source": "The Weather Channel" },
+    { "id": "Wt2HV8tYWzY", "title": "Saharan Dust Cloud Moving Across Atlantic", "source": "CBS / Weather" },
+    { "id": "GDwt39zcvNA", "title": "Impacts of Thick Saharan Dust on Weather & Air Quality", "source": "Weather" },
+    { "id": "fO9e9jnhYK8", "title": "4K Live Earth View from ISS (Sen / NASA)", "source": "NASA / Sen" },
+    { "id": "ca1GlBxDBX8", "title": "Severe Storms & Thunderstorm Outlook with Storm Chasers", "source": "AccuWeather" },
+    { "id": "1J2PlPAB2BE", "title": "Long-Range Climate & Rainfall Forecast", "source": "Bureau of Meteorology / Global" },
+    { "id": "KCy6rZyQtcY", "title": "Nigeria Weather Forecast Update", "source": "NTA / NiMet" },
+    { "id": "1zGbBXJsn4Y", "title": "Saharan Dust Impact on Atlantic Hurricanes & Weather", "source": "Weather Analysis" }
+  ]
+}

@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watch | Play Mode Africa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        /* ===== CUSTOM VARIABLES ===== */
+        :root {
+            --primary-red: #D31E24;
+            --bg-dark: #0D0D0D;
+            --card-bg: #1A1A1A;
+            --text-white: #FFFFFF;
+            --text-grey: #A0A0A0;
+            --shadow: 0 8px 32px rgba(0,0,0,0.4);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* ===== RESET & BASE ===== */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            background-color: var(--bg-dark); 
+            color: var(--text-white); 
+            font-family: 'Inter', sans-serif; 
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+        /* ===== HEADER ===== */
+        header { 
+            padding: 15px 0; 
+            background: rgba(13, 13, 13, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky; 
+            top: 0; 
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        nav { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+        }
+
+        .logo img { height: 40px; }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 35px;
+            align-items: center;
+        }
+
+        .nav-links a { 
+            text-decoration: none; 
+            color: var(--text-white); 
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .btn-primary {
+            background: var(--primary-red);
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        /* ===== HAMBURGER MENU ===== */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 2px;
+            background: var(--text-white);
+            transition: var(--transition);
+        }
+
+        /* ===== WATCH PAGE SPECIFIC ===== */
+        .watch-container {
+            padding-top: 30px;
+            padding-bottom: 60px;
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            height: 0;
+            background: #000;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.6);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .video-details { margin-top: 25px; }
+        .video-details h1 { font-size: 1.8rem; margin-bottom: 10px; }
+        .meta-info { color: var(--text-grey); font-size: 0.9rem; margin-bottom: 15px; display: flex; gap: 10px; }
+
+        .video-actions { display: flex; gap: 15px; margin-top: 20px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 30px; }
+
+        .btn-red, .btn-outline {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 25px;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-red { background: var(--primary-red); color: white; border: none; }
+        .btn-outline { background: transparent; border: 1px solid white; color: white; }
+
+        /* ===== RELATED CONTENT ===== */
+        .related-section { margin-top: 40px; }
+        .related-section h2 { font-size: 1.4rem; margin-bottom: 20px; }
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .video-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .video-card:hover { transform: translateY(-5px); }
+        .video-card img { width: 100%; aspect-ratio: 16/9; object-fit: cover; }
+        .card-info { padding: 15px; }
+        .card-info h3 { font-size: 0.95rem; margin-bottom: 5px; height: 40px; overflow: hidden; }
+
+        /* ===== FOOTER ===== */
+        footer { background: #111; padding: 60px 0 20px; margin-top: 60px; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; }
+
+        @media (max-width: 768px) {
+            .hamburger { display: flex; }
+            .nav-links { display: none; }
+            .footer-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <img src="assets/play-mode-logo.png" alt="Play Mode Africa">
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">Broadcasting</a></li>
+                <li><a href="#">Live Streams</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="btn-primary">Subscribe</button>
+                <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container watch-container">
+        <div class="video-player-wrapper">
+            <div class="video-container" id="top">
+                <iframe id="main-player" src="" frameborder="0" allowfullscreen allow="autoplay; encrypted-media"></iframe>
+            </div>
+        </div>
+
+        <div class="video-details">
+            <h1 id="video-title">Loading video...</h1>
+            <div class="meta-info">
+                <span id="upload-date">Verifying...</span>
+                <span class="separator">•</span>
+                <span id="video-duration">00:00</span>
+            </div>
+            <p id="video-desc" class="description"></p>
+            <div class="video-actions">
+                <button class="btn-red" onclick="scrollToPlayer()"><i data-lucide="play"></i> Watch Now</button>
+                <button class="btn-outline" id="save-btn" onclick="saveVideo()"><i data-lucide="bookmark"></i> Save</button>
+            </div>
+        </div>
+
+        <section class="related-section">
+            <h2>Related Contents</h2>
+            <div class="related-grid" id="related-grid">
+                </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <img src="assets/play-mode-logo.png" alt="Play Mode Africa" style="height:35px">
+                <p>Africa's leading media streaming platform.</p>
+            </div>
+        </div>
+        <div class="footer-bottom" style="text-align:center; padding-top:20px; color:#A0A0A0;">
+            <p>© 2026 Play Mode Africa.</p>
+        </div>
+    </footer>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const videoId = urlParams.get('v');
+        const categories = ['politics', 'finance', 'business', 'tech', 'health', 'weather', 'discovery'];
+
+        async function initWatchPage() {
+            if (!videoId) return;
+
+            // 1. Set Iframe
+            document.getElementById('main-player').src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+
+            // 2. Fetch Data to find video details and category
+            let foundVideo = null;
+            let currentCategory = 'tech';
+
+            for (const cat of categories) {
+                try {
+                    const res = await fetch(`data/${cat}.json`);
+                    const data = await res.json();
+                    const video = data.random_bank.find(v => v.id === videoId);
+                    if (video) {
+                        foundVideo = video;
+                        currentCategory = cat;
+                        loadRelated(data.random_bank); // Load others from same JSON
+                        break;
+                    }
+                } catch(e) { console.error(e); }
+            }
+
+            // 3. Update UI
+            if (foundVideo) {
+                document.getElementById('video-title').textContent = foundVideo.title;
+                document.getElementById('upload-date').textContent = "Uploaded 2 days ago";
+                document.getElementById('video-duration').textContent = "12:45"; 
+                document.getElementById('video-desc').textContent = `Now streaming: ${foundVideo.title}. Source: ${foundVideo.source || 'Play Mode Africa'}. Stay tuned for more exclusive content.`;
+            }
+        }
+
+        function loadRelated(videoList) {
+            const grid = document.getElementById('related-grid');
+            grid.innerHTML = '';
+            // Show 4 other videos
+            videoList.filter(v => v.id !== videoId).slice(0, 4).forEach(video => {
+                const card = `
+                    <div class="video-card" onclick="window.location.href='watch.html?v=${video.id}'">
+                        <img src="https://img.youtube.com/vi/${video.id}/mqdefault.jpg">
+                        <div class="card-info">
+                            <h3>${video.title}</h3>
+                            <small style="color:#A0A0A0">${video.source || 'Play Mode'}</small>
+                        </div>
+                    </div>
+                `;
+                grid.innerHTML += card;
+            });
+        }
+
+        function scrollToPlayer() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function saveVideo() {
+            const btn = document.getElementById('save-btn');
+            btn.innerHTML = '<i data-lucide="check"></i> Saved';
+            btn.style.borderColor = '#D31E24';
+            lucide.createIcons();
+        }
+
+        // Hamburger
+        document.getElementById('hamburger').addEventListener('click', () => {
+            document.getElementById('navLinks').classList.toggle('open');
+        });
+
+        initWatchPage();
+        lucide.createIcons();
+    </script>
+</body>
+</html>

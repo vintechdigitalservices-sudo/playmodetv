@@ -1,0 +1,31 @@
+{
+  "category": "Politics",
+  "auto_feeds": [
+    { "source": "Arise News", "playlist_id": "UUvJJ_dzjViJCoLf5uKUTwoA", "type": "Latest" },
+    { "source": "BBC News", "playlist_id": "PLzGHKb8i9vTw-PIVPO_dUqaofRO8s3VFr", "type": "Global" },
+    { "source": "NTA News", "playlist_id": "UUmyWFHPPQsg", "type": "National" },
+    { "source": "Al Jazeera", "playlist_id": "PLzGHKb8i9vTxrJ8IOFbqsja57rqcQuPIC", "type": "Inside Story" }
+  ],
+  "random_bank": [
+    { "id": "haLznTGxjuY", "title": "Network News @ 9pm | May 19, 2026", "source": "NTA Network" },
+    { "id": "Z6Tr7bZBGxY", "title": "BBC News at Ten: Streeting to Confront Starmer", "source": "BBC" },
+    { "id": "UGaqvPYG8OU", "title": "New Party Seeks to Redefine Governance in Nigeria", "source": "Arise News" },
+    { "id": "haLznTGxjuY", "title": "President Tinubu's Speech at Gen Yakubu Gowon Book Presentation", "source": "NTA Network" },
+    { "id": "MEL4XpizSbU", "title": "Behind the Scenes: CNN’s New Virtual Reality Studio", "source": "CNN" },
+    { "id": "6_EgMaIoGUM", "title": "Political Update: May 15, 2026", "source": "NTA" },
+    { "id": "uwDSAVkG_3w", "title": "Economy & Security Demands for 2026", "source": "Arise News" },
+    { "id": "noZvV1dZgRI", "title": "BBC Analysis: Global Shift in Power Dynamics", "source": "BBC" },
+    { "id": "uuXY9wjFqQo", "title": "2026 Great Expectations: Presidential Panels", "source": "Arise News" },
+    { "id": "d4V7XDAZHeQ", "title": "Primary Elections Analysis: 6 States Profiled", "source": "CNN" },
+    { "id": "E7j-FtKapIg", "title": "Supreme Court Decisions and Future Elections", "source": "CNN" },
+    { "id": "ixJ4cOe_0wQ", "title": "Nigeria Reputation Summit 2026 Highlights", "source": "News Central" },
+    { "id": "jkqWJePsc7E", "title": "State Opening of Parliament 2026 Full Coverage", "source": "BBC One" },
+    { "id": "jfKfPfyJRdk", "title": "Inside the Election: Candidates and Policy", "source": "CNN" },
+    { "id": "haLznTGxjuY", "title": "Gen Yakubu Gowon: Life of Duty and Allegiance Speech", "source": "NTA Network" },
+    { "id": "UGaqvPYG8OU", "title": "APC Conducts First Phase of Primaries", "source": "Arise News" },
+    { "id": "haLznTGxjuY", "title": "Panorama: Political Special Edition May 2026", "source": "NTA Network" },
+    { "id": "Z6Tr7bZBGxY", "title": "Global Summit Recap: Political Stability", "source": "BBC" },
+    { "id": "MEL4XpizSbU", "title": "The First Woman in British High Office: A Legacy", "source": "CNN10" },
+    { "id": "6_EgMaIoGUM", "title": "Weekly Recap: National Assembly Debates", "source": "NTA" }
+  ]
+}

@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Article | Play Mode Africa</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="assets/play-mode-logo.png" alt="Play Mode Africa">
+                </a>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">Broadcasting</a></li>
+                <li><a href="#">Live Streams</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+            <div class="nav-actions">
+                <i data-lucide="search" class="search-icon"></i>
+                <button class="btn-primary">Subscribe</button>
+                <div class="hamburger" id="hamburger">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ===== ARTICLE CONTENT ===== -->
+    <div class="container">
+        <div class="article-page-layout" id="article-content">
+
+            <!-- Back button -->
+            <button class="article-back" onclick="history.back()">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+                Back to Home
+            </button>
+
+            <!-- Meta row: category + source + date -->
+            <div class="article-meta-row" id="article-meta-row">
+                <!-- Populated by JS -->
+            </div>
+
+            <!-- Headline -->
+            <h1 class="article-headline" id="article-headline">Loading...</h1>
+
+            <!-- Hero image -->
+            <div class="article-hero-img-wrap">
+                <div class="article-img-skeleton" id="img-skeleton"></div>
+                <img id="article-hero-img" src="" alt="" style="opacity:0"
+                     onload="this.style.opacity='1'; document.getElementById('img-skeleton').style.display='none';"
+                     onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=1200&q=80'; this.style.opacity='1'; document.getElementById('img-skeleton').style.display='none';">
+            </div>
+
+            <!-- Excerpt -->
+            <div class="article-excerpt-box">
+                <div class="article-excerpt-label">Summary</div>
+                <p class="article-excerpt-text" id="article-excerpt">Loading article summary...</p>
+            </div>
+
+            <!-- Continue Reading CTA -->
+            <div class="article-cta-section">
+                <div class="article-cta-text">
+                    <h3>Read the Full Article</h3>
+                    <p>Continue to the original source to read the complete story.</p>
+                </div>
+                <a id="continue-reading-btn" href="#" target="_blank" rel="noopener" class="btn-continue">
+                    Continue Reading
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                </a>
+            </div>
+
+            <!-- Share row -->
+            <div class="article-share-row" id="share-row">
+                <span class="share-label">Share:</span>
+                <a id="share-twitter" href="#" target="_blank" rel="noopener" class="share-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622Zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    Twitter / X
+                </a>
+                <a id="share-facebook" href="#" target="_blank" rel="noopener" class="share-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    Facebook
+                </a>
+                <a id="share-whatsapp" href="#" target="_blank" rel="noopener" class="share-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    WhatsApp
+                </a>
+                <button class="share-btn copy-btn" id="copy-link-btn" onclick="copyLink()">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                    Copy Link
+                </button>
+            </div>
+
+            <!-- Related Content -->
+            <div id="related-section">
+                <h2 class="article-related-title">More Stories</h2>
+                <div class="related-grid" id="related-grid">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <img src="assets/play-mode-logo.png" alt="Play Mode Africa" class="footer-logo">
+                <p>Africa's leading media streaming platform. A subsidiary of Stream Guys Media.</p>
+                <div class="social-icons">
+                    <i data-lucide="facebook"></i>
+                    <i data-lucide="twitter"></i>
+                    <i data-lucide="instagram"></i>
+                    <i data-lucide="youtube"></i>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">Broadcasting</a></li>
+                    <li><a href="#">Live Streams</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">About Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Categories</h4>
+                <ul>
+                    <li><a href="#">Politics</a></li>
+                    <li><a href="#">Finance</a></li>
+                    <li><a href="#">Business</a></li>
+                    <li><a href="#">Technology</a></li>
+                    <li><a href="#">Health &amp; Climate</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="mailto:dummy@playmodeafrica.com">dummy@playmodeafrica.com</a></li>
+                    <li><a href="tel:07031114425">0703 111 4425</a></li>
+                    <li><a href="#" target="_blank">4 Presidential drive, Nsugbe, Anambra, Nigeria</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Play Mode Africa. A subsidiary of <strong>Stream Guys Media</strong>.</p>
+        </div>
+    </footer>
+
+    <script>
+    // ===== PARSE URL PARAMS =====
+    const params  = new URLSearchParams(window.location.search);
+    const extUrl  = params.get('url')         || '#';
+    const title   = params.get('title')       || 'Untitled Article';
+    const image   = params.get('image')       || '';
+    const source  = params.get('source')      || 'Unknown Source';
+    const desc    = params.get('description') || 'No summary available for this article.';
+    const pubDate = params.get('pubDate')      || '';
+    const category= params.get('category')    || 'News';
+
+    // ===== POPULATE PAGE =====
+    document.title = `${title} | Play Mode Africa`;
+
+    // Headline
+    document.getElementById('article-headline').textContent = title;
+
+    // Image
+    const imgEl = document.getElementById('article-hero-img');
+    if (image) {
+        imgEl.src = image;
+        imgEl.alt = title;
+    } else {
+        imgEl.src = 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=1200&q=80';
+        imgEl.alt = title;
+        imgEl.style.opacity = '1';
+        document.getElementById('img-skeleton').style.display = 'none';
+    }
+
+    // Excerpt — show full description on article page
+    document.getElementById('article-excerpt').textContent = desc || 'No summary available for this article.';
+
+    // Continue reading button
+    document.getElementById('continue-reading-btn').href = extUrl;
+
+    // Meta row
+    const initials = source.slice(0, 2).toUpperCase();
+    const timeStr  = pubDate ? timeAgo(pubDate) : '';
+    document.getElementById('article-meta-row').innerHTML = `
+        <span class="article-category-badge">${category}</span>
+        <span class="article-source-badge">
+            <span class="article-source-avatar">${initials}</span>
+            ${source}
+        </span>
+        ${timeStr ? `<span class="article-pubdate">${timeStr}</span>` : ''}
+    `;
+
+    // Share links
+    const pageUrl    = window.location.href;
+    const encodedUrl = encodeURIComponent(extUrl);
+    const encodedTitle = encodeURIComponent(title);
+    document.getElementById('share-twitter').href   = `https://twitter.com/intent/tweet?text=${encodedTitle}&url=${encodedUrl}`;
+    document.getElementById('share-facebook').href  = `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`;
+    document.getElementById('share-whatsapp').href  = `https://wa.me/?text=${encodedTitle}%20${encodedUrl}`;
+
+    // ===== COPY LINK =====
+    function copyLink() {
+        navigator.clipboard.writeText(extUrl).then(() => {
+            const btn = document.getElementById('copy-link-btn');
+            btn.classList.add('copied');
+            btn.innerHTML = `
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px"><polyline points="20 6 9 17 4 12"/></svg>
+                Copied!
+            `;
+            setTimeout(() => {
+                btn.classList.remove('copied');
+                btn.innerHTML = `
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                    Copy Link
+                `;
+            }, 2500);
+        });
+    }
+
+    // ===== TIME AGO =====
+    function timeAgo(dateStr) {
+        const diff = Date.now() - new Date(dateStr).getTime();
+        const mins = Math.floor(diff / 60000);
+        if (mins < 60)  return `${mins} min ago`;
+        const hrs = Math.floor(mins / 60);
+        if (hrs < 24)   return `${hrs} hour${hrs > 1 ? 's' : ''} ago`;
+        return `${Math.floor(hrs / 24)} day${Math.floor(hrs / 24) > 1 ? 's' : ''} ago`;
+    }
+
+    // ===== LOAD RELATED ARTICLES =====
+    const NEWS_API_KEY  = 'pub_48088daded4b4d86bac3ec31ad15a705';
+    const NEWS_API_BASE = 'https://newsdata.io/api/1/news';
+
+    async function loadRelated() {
+        const relatedGrid = document.getElementById('related-grid');
+        // Show skeletons while loading
+        relatedGrid.innerHTML = [1,2,3].map(() => `
+            <div class="news-card" style="pointer-events:none">
+                <div style="aspect-ratio:16/9;background:linear-gradient(90deg,#1e1e1e 25%,#2a2a2a 50%,#1e1e1e 75%);background-size:200% 100%;animation:shimmer 1.5s infinite;border-radius:12px 12px 0 0"></div>
+                <div class="news-card-body">
+                    <div style="height:14px;border-radius:4px;background:linear-gradient(90deg,#1e1e1e 25%,#2a2a2a 50%,#1e1e1e 75%);background-size:200% 100%;animation:shimmer 1.5s infinite;margin-bottom:8px;width:90%"></div>
+                    <div style="height:14px;border-radius:4px;background:linear-gradient(90deg,#1e1e1e 25%,#2a2a2a 50%,#1e1e1e 75%);background-size:200% 100%;animation:shimmer 1.5s infinite;width:60%"></div>
+                </div>
+            </div>
+        `).join('');
+
+        try {
+            // Fetch related by category, Africa-focused
+            const cat = category && category !== 'News' ? `&category=${category.toLowerCase()}` : '';
+            const res  = await fetch(`${NEWS_API_BASE}?apikey=${NEWS_API_KEY}&language=en&size=6&q=africa${cat}`);
+            const data = await res.json();
+
+            if (data.status === 'success' && data.results?.length) {
+                // Filter out current article, take 3
+                const related = data.results.filter(a => a.link !== extUrl).slice(0, 3);
+                relatedGrid.innerHTML = related.map(a => {
+                    const aImg    = a.image_url || 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=600&q=80';
+                    const aTitle  = a.title || 'Untitled';
+                    const aSource = a.source_id || 'News';
+                    const aTime   = a.pubDate ? timeAgo(a.pubDate) : '';
+                    const aParams = new URLSearchParams({
+                        url: a.link || '', title: aTitle,
+                        image: aImg, source: aSource,
+                        description: a.description || '',
+                        pubDate: a.pubDate || '',
+                        category: a.category?.[0] || 'News',
+                    });
+                    return `
+                        <a href="article.html?${aParams}" class="news-card animate-on-scroll" style="text-decoration:none;color:inherit">
+                            <div class="news-card-img-wrap">
+                                <img class="news-card-img" src="${aImg}" alt="${aTitle}"
+                                     onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=600&q=80'"
+                                     loading="lazy">
+                                <span class="card-type-badge news-type">Article</span>
+                            </div>
+                            <div class="news-card-body">
+                                <h3>${aTitle}</h3>
+                                <div class="card-footer">
+                                    <span class="card-source">${aSource}</span>
+                                    <span class="card-time">${aTime}</span>
+                                </div>
+                            </div>
+                        </a>
+                    `;
+                }).join('');
+            } else {
+                document.getElementById('related-section').style.display = 'none';
+            }
+        } catch (err) {
+            document.getElementById('related-section').style.display = 'none';
+        }
+
+        // Trigger scroll animations
+        setTimeout(() => {
+            document.querySelectorAll('.animate-on-scroll').forEach(el => {
+                el.classList.add('visible');
+            });
+        }, 100);
+    }
+
+    // ===== HAMBURGER =====
+    const hamburger = document.getElementById('hamburger');
+    const navLinks  = document.getElementById('navLinks');
+    hamburger.addEventListener('click', function () {
+        navLinks.classList.toggle('open');
+        this.classList.toggle('active');
+    });
+    navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('open');
+            hamburger.classList.remove('active');
+        });
+    });
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 768) {
+            navLinks.classList.remove('open');
+            hamburger.classList.remove('active');
+        }
+    });
+
+    // ===== INIT =====
+    document.addEventListener('DOMContentLoaded', () => {
+        loadRelated();
+    });
+    </script>
+
+    <script>lucide.createIcons();</script>
+</body>
+</html>
