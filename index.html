@@ -1,4 +1,3 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,7 +19,7 @@
                 <div class="logo-anim-wrap">
                     <img src="assets/play-mode-logo.png" class="logo-frame logo-frame-0 active" alt="Play Mode Africa">
                     <img src="assets/playMODE LOGO 1.png" class="logo-frame logo-frame-1" alt="Play Mode Africa">
-                    <img src="assets/playMODE LOGO 2.png" class="logo-frame logo-frame-2" alt="Play Mode Africa">
+                    <img src="assets/plaYMODE LOGO 2.png" class="logo-frame logo-frame-2" alt="Play Mode Africa">
                     <img src="assets/plaYMODE LOGO landscape colour 2.png" class="logo-frame logo-frame-3" alt="Play Mode Africa">
                     <img src="assets/plaYMODE LOGO landscape colour 3.png" class="logo-frame logo-frame-4" alt="Play Mode Africa">
                     <img src="assets/plaYMODE LOGO landscape colour 4.png" class="logo-frame logo-frame-5" alt="Play Mode Africa">
@@ -41,7 +40,7 @@
             </ul>
             <div class="nav-actions">
                 <i data-lucide="search" class="search-icon"></i>
-                <a href="https://youtube.com/@playmodeafrica?si=NJ54IRPjb3ruVmf7" target="_blank" class="btn-primary">Subscribe</a>
+                <a href="https://youtube.com/@playmodeafrica?si=NJ54IRPjb3ruVmf7" target="_blank" rel="noopener" class="btn-primary">Subscribe</a>
                 <div class="hamburger" id="hamburger">
                     <span></span><span></span><span></span>
                 </div>
@@ -67,21 +66,12 @@
     <div class="datetime-bar">
         <div class="datetime-inner">
             <span class="datetime-item">
-                <div class="globe-3d">
-                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/>
-                        <ellipse cx="12" cy="12" rx="4" ry="10" stroke="currentColor" stroke-width="1.5"/>
-                        <ellipse cx="12" cy="12" rx="10" ry="4" stroke="currentColor" stroke-width="1.5"/>
-                        <path d="M2 12h20" stroke="currentColor" stroke-width="1.5"/>
-                        <path d="M12 2c2 3 3 7 3 10s-1 7-3 10" stroke="currentColor" stroke-width="1.5"/>
-                        <path d="M12 2c-2 3-3 7-3 10s1 7 3 10" stroke="currentColor" stroke-width="1.5"/>
-                    </svg>
-                </div>
-                <span id="date-display">SUNDAY MAY 31, 2026</span>
+                <canvas class="globe-canvas" id="globeCanvas" width="28" height="28"></canvas>
+                <span id="date-display">LOADING...</span>
             </span>
             <span class="datetime-divider">|</span>
             <span class="datetime-item">
-                <i class="fa-regular fa-clock"></i>
+                <i class="fa-regular fa-clock" style="color:var(--primary-red)"></i>
                 <span id="time-display">--:-- --</span>
                 <span class="tz-label" id="tz-label">WAT</span>
             </span>
@@ -92,119 +82,56 @@
     <div class="container">
         <div class="category-filter">
             <button class="filter-btn active" data-filter="all">All</button>
-            <button class="filter-btn" data-filter="business">Business</button>
-            <button class="filter-btn" data-filter="discovery">Discovery</button>
-            <button class="filter-btn" data-filter="finance">Finance</button>
-            <button class="filter-btn" data-filter="health">Health</button>
-            <button class="filter-btn" data-filter="politics">Politics</button>
             <button class="filter-btn" data-filter="sports">Sports</button>
-            <button class="filter-btn" data-filter="tech">Tech</button>
-            <button class="filter-btn" data-filter="weather">Weather</button>
+            <button class="filter-btn" data-filter="politics">Politics</button>
+            <button class="filter-btn" data-filter="finance">Finance</button>
+            <button class="filter-btn" data-filter="business">Business</button>
+            <button class="filter-btn" data-filter="technology">Tech</button>
+            <button class="filter-btn" data-filter="health">Health</button>
+            <button class="filter-btn" data-filter="environment">Weather</button>
+            <button class="filter-btn" data-filter="science">Discovery</button>
         </div>
     </div>
 
     <!-- ===== MAIN CONTENT ===== -->
     <main class="container main-outer" id="main-content">
 
-        <!-- ====================================================
-             SECTION: TODAY'S TOP STORIES + FOR YOU SIDEBAR
-             Layout matches uploaded image: top row (2 large + sidebar)
-             then 3 cards row, then sidebar continues
-        ===================================================== -->
+        <!-- TODAY'S TOP STORIES -->
         <div class="main-layout" id="top-stories-layout">
-
-            <!-- LEFT FEED -->
             <div class="content-feed">
                 <div class="feed-header">
                     <h2 class="feed-title">Today's Top Stories</h2>
                     <span class="live-dot"><span></span>Live Updates</span>
                 </div>
-
-                <!-- Top Row: 2 large cards -->
-                <div id="top-stories-row" class="top-stories-row">
-                    <!-- 2 large cards populated by JS -->
-                </div>
-
-                <!-- Row of 3 cards below -->
-                <div id="top-videos-row" class="top-videos-row">
-                    <!-- 3 cards populated by JS -->
-                </div>
-            </div>
-
-            <!-- RIGHT SIDEBAR: For You -->
-            <aside class="sidebar" id="for-you-sidebar">
-                <div class="sidebar-section">
-                    <h3 class="sidebar-title">For You</h3>
-                    <div id="for-you-list" class="for-you-list">
-                        <!-- 4 items -->
+                <div id="featured-story" class="featured-story animate-on-scroll">
+                    <div class="featured-skeleton">
+                        <div class="skeleton-img"></div>
+                        <div class="skeleton-text">
+                            <div class="skeleton-line wide"></div>
+                            <div class="skeleton-line medium"></div>
+                            <div class="skeleton-line short"></div>
+                        </div>
                     </div>
                 </div>
+                <div id="top-videos-row" class="top-videos-row"></div>
+                <div id="loading-indicator" class="loading-indicator">
+                    <div class="spinner"></div>
+                    <span>Loading content...</span>
+                </div>
+            </div>
+            <aside class="sidebar" id="for-you-sidebar">
+                <div class="sidebar-section">
+                    <h3 class="sidebar-title">
+                        <i data-lucide="sparkles"></i>
+                        For You
+                    </h3>
+                    <div id="for-you-list" class="for-you-list"></div>
+                </div>
             </aside>
-
-        </div><!-- /top-stories-layout -->
-
-        <!-- ====================================================
-             CATEGORY SECTIONS (hidden when filter active)
-             Templates loop: Structure 1, 2, 3, 1, 2, 3, 1, 2
-             Categories: business, discovery, finance, health, 
-                        politics, sports, tech, weather
-        ===================================================== -->
-        <div id="category-sections">
-
-            <!-- STRUCTURE 1: Business -->
-            <section class="cat-section" id="cat-business" data-template="1">
-                <div class="cat-header"><h2 class="cat-title">💼 Business</h2></div>
-                <div class="cat-structure-1" id="cat-business-layout"></div>
-            </section>
-
-            <!-- STRUCTURE 2: Discovery -->
-            <section class="cat-section" id="cat-discovery" data-template="2">
-                <div class="cat-header"><h2 class="cat-title">✨ Discovery</h2></div>
-                <div class="cat-structure-2" id="cat-discovery-layout"></div>
-            </section>
-
-            <!-- STRUCTURE 3: Finance -->
-            <section class="cat-section" id="cat-finance" data-template="3">
-                <div class="cat-header"><h2 class="cat-title">📈 Finance</h2></div>
-                <div class="cat-structure-3" id="cat-finance-layout"></div>
-            </section>
-
-            <!-- STRUCTURE 1: Health -->
-            <section class="cat-section" id="cat-health" data-template="1">
-                <div class="cat-header"><h2 class="cat-title">🏥 Health</h2></div>
-                <div class="cat-structure-1" id="cat-health-layout"></div>
-            </section>
-
-            <!-- STRUCTURE 2: Politics -->
-            <section class="cat-section" id="cat-politics" data-template="2">
-                <div class="cat-header"><h2 class="cat-title">⚖️ Politics</h2></div>
-                <div class="cat-structure-2" id="cat-politics-layout"></div>
-            </section>
-
-            <!-- STRUCTURE 3: Sports -->
-            <section class="cat-section" id="cat-sports" data-template="3">
-                <div class="cat-header"><h2 class="cat-title">⚽ Sports</h2></div>
-                <div class="cat-structure-3" id="cat-sports-layout"></div>
-            </section>
-
-            <!-- STRUCTURE 1: Tech -->
-            <section class="cat-section" id="cat-tech" data-template="1">
-                <div class="cat-header"><h2 class="cat-title">🚀 Tech</h2></div>
-                <div class="cat-structure-1" id="cat-tech-layout"></div>
-            </section>
-
-            <!-- STRUCTURE 2: Weather -->
-            <section class="cat-section" id="cat-weather" data-template="2">
-                <div class="cat-header"><h2 class="cat-title">🌤️ Weather</h2></div>
-                <div class="cat-structure-2" id="cat-weather-layout"></div>
-            </section>
-
-        </div><!-- /category-sections -->
-
-        <div id="loading-indicator" class="loading-indicator">
-            <div class="spinner"></div>
-            <span>Loading content...</span>
         </div>
+
+        <!-- CATEGORY SECTIONS (dynamically populated) -->
+        <div id="category-sections"></div>
 
     </main>
 
@@ -246,12 +173,12 @@
                 <ul>
                     <li><a href="mailto:dummy@playmodeafrica.com">dummy@playmodeafrica.com</a></li>
                     <li><a href="tel:07031114425">0703 111 4425</a></li>
-                    <li><a href="https://maps.google.com/?q=4+Presidential+drive+opposite+NOCEN+first+gate+Nsugbe+Anambra+State+Nigeria" target="_blank">4 Presidential drive, Nsugbe, Anambra, Nigeria</a></li>
+                    <li><a href="https://maps.google.com/?q=4+Presidential+drive+Nsugbe+Anambra+Nigeria" target="_blank">4 Presidential drive, Nsugbe, Anambra</a></li>
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>© 2026 Play Mode Africa. A subsidiary of <strong>Stream Guys Media</strong>.</p>
+            <p>&copy; 2026 Play Mode Africa. A subsidiary of <strong>Stream Guys Media</strong>.</p>
         </div>
     </footer>
 
