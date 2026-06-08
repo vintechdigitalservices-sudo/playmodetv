@@ -43,7 +43,39 @@ header {
     position: sticky; top: 0; z-index: 1000;
     border-bottom: 1px solid var(--border);
 }
-nav { display: flex; justify-content: space-between; align-items: center; max-width: 1380px; margin: 0 auto; padding: 0 20px; }
+
+nav { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    max-width: 1380px; 
+    margin: 0 auto; 
+    padding: 0 15px; /* Slightly reduced padding to give elements more horizontal room */
+    width: 100%;
+}
+
+/* --- LOGO FIXES --- */
+/* This targets the wrapper around your logo image */
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-right: auto; /* Forces everything else to the right */
+    padding-right: 20px; /* Guarantees a physical safety buffer zone to its right */
+    max-width: 45%; /* Prevents the logo container from taking up more than half the screen */
+}
+
+/* This shrinks the actual logo image down so it stops overlapping */
+.logo img, 
+header img { 
+    max-height: 40px !important; /* Forces the logo to be smaller vertically */
+    max-width: 100% !important;  /* Ensures it scales down horizontally to fit the screen */
+    width: auto;
+    object-fit: contain;
+    display: block;
+}
+/* ------------------ */
+
 .nav-links { display: flex; list-style: none; gap: 35px; align-items: center; }
 .nav-links a {
     text-decoration: none; color: var(--text-white);
@@ -53,23 +85,33 @@ nav { display: flex; justify-content: space-between; align-items: center; max-wi
 .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: var(--primary-red); transition: var(--transition); }
 .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
 .nav-links a:hover, .nav-links a.active { color: var(--primary-red); }
-.nav-actions { display: flex; align-items: center; gap: 20px; }
-.search-icon { cursor: pointer; transition: var(--transition); }
+
+.nav-actions { 
+    display: flex; 
+    align-items: center; 
+    gap: 15px; /* Controlled spacing between search, subscribe, and hamburger */
+    flex-shrink: 0; /* Prevents the icons from getting squished by the logo */
+}
+
+.search-icon { cursor: pointer; transition: var(--transition); flex-shrink: 0; }
 .search-icon:hover { color: var(--primary-red); }
+
 .btn-primary {
     background: var(--primary-red); color: white; border: none;
-    padding: 8px 20px; font-weight: 600; border-radius: 50px;
-    cursor: pointer; transition: var(--transition); font-size: 0.9rem;
+    padding: 6px 15px; font-weight: 600; border-radius: 50px; /* Made slightly smaller for mobile mobile */
+    cursor: pointer; transition: var(--transition); font-size: 0.85rem;
     text-decoration: none; display: inline-block;
+    white-space: nowrap; /* Keeps 'Subscribe' on one line */
 }
 .btn-primary:hover { transform: scale(1.05); box-shadow: 0 0 20px rgba(211,30,36,0.4); }
 
 /* ===== HAMBURGER ===== */
-.hamburger { display: none; flex-direction: column; cursor: pointer; gap: 5px; }
+.hamburger { display: none; flex-direction: column; cursor: pointer; gap: 5px; flex-shrink: 0; }
 .hamburger span { width: 25px; height: 2px; background: var(--text-white); transition: var(--transition); border-radius: 2px; }
 .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
 .hamburger.active span:nth-child(2) { opacity: 0; }
 .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
+
 
 /* ===== HERO ===== */
 .hero {
