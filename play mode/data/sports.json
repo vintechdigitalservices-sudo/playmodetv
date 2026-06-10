@@ -1,0 +1,37 @@
+{
+  "category": "Sports",
+  "auto_feeds": [
+    { "source": "Premier League", "playlist_id": "PLISuFiQTdKDWLIeau9w3aVwtiFsKwarBe", "type": "Match Highlights 2025/26" },
+    { "source": "NBA", "playlist_id": "PLlVlyGVtvuVlek5UOvwJaRDtuAI1FgGZf", "type": "Full Game Highlights 2025-26" },
+    { "source": "CAF / AFCON", "playlist_id": "PLo4PPoYXxcYlVr5cgCaHpPJKTUoNxOC2a", "type": "AFCON 2025 Highlights" },
+    { "source": "SuperSport", "playlist_id": "PLrknD2SRMNPmkms9iAZN2CWS2OdvapAOy", "type": "Premier League & African Sports" }
+  ],
+  "random_bank": [
+    { "id": "WyQWF6OfTwU", "title": "Saturday's Top 10 Sports Plays | May 30, 2026", "source": "NBA Daily" },
+    { "id": "mWuLNhv09y4", "title": "The BEST MOMENTS of Week 26 | 2025-26 NBA Season", "source": "NBA" },
+    { "id": "63P006ZKx20", "title": "Genius Plays in Football 2026", "source": "Football Highlights" },
+    { "id": "YYevs1gXueE", "title": "Most VIRAL Football Moments of The 2025/2026 Season", "source": "Football Daily" },
+    { "id": "mrnyegelcWA", "title": "Senegal vs Morocco | EXTENDED HIGHLIGHTS AFCON 2025 Final", "source": "beIN SPORTS USA" },
+    { "id": "chuhAI45g70", "title": "Senegal vs Morocco | AFCON 2025 Final Highlights", "source": "CAF TV" },
+    { "id": "WXB5xdr4IfE", "title": "AFCON 2025 Semifinals Highlights", "source": "Channel 4 Sport" },
+    { "id": "1bOMYQFgK4I", "title": "Spurs vs Thunder | FULL GAME 7 Highlights 2025-26", "source": "NBA" },
+    { "id": "T5D7aDmuyic", "title": "Manchester City vs Crystal Palace | Extended Highlights 2025/26", "source": "Premier League" },
+    { "id": "K5pnx446Jtc", "title": "Best Goals of 2026 #1", "source": "Football Highlights" },
+    { "id": "fjAdok506ZA", "title": "AFCON 2025 Podcast | SuperSport", "source": "SuperSport" },
+    { "id": "toTra6Q79l0", "title": "The BEST MOMENTS of Week 3 | 2025-26 NBA Season", "source": "NBA" },
+    { "id": "LL_7-qDIJ4Y", "title": "The TOP Plays of Week 5 | 2025-26 NBA Season", "source": "NBA" },
+    { "id": "6kvTbyU5Q2M", "title": "NBA - BEST Plays of 2026 Regular Season", "source": "Golden Hoops" },
+    { "id": "mseYJZ67xGU", "title": "Sports Highlights January 2026", "source": "Local Sports" },
+    { "id": "OzBOU3zbf04", "title": "Add INSTANT Energy to your Sports Edits (2026)", "source": "Editing Tips" },
+    { "id": "U1pdXDlQNOk", "title": "Kalahari Conference - Johannesburg Giants Practice (BAL)", "source": "Basketball Africa League" },
+    { "id": "g8AAjoJb2Uw", "title": "Africa @ Play Sports Show", "source": "Channel Africa" },
+    { "id": "KVOkr-q02P8", "title": "South Africa's Momentous Sporting Moments", "source": "Documentary" },
+    { "id": "Q3OxD3hotmU", "title": "2025 Sports Recap & 2026 World Cup Preview", "source": "Lurks Lessons" },
+    { "id": "4z-wQ5TmZ68", "title": "EVERY SINGLE GOAL from Matchweek 37 | Premier League", "source": "Premier League" },
+    { "id": "zNrZxdyCt48", "title": "Cameroon vs Morocco | EXTENDED HIGHLIGHTS AFCON 2025", "source": "beIN SPORTS" },
+    { "id": "-aGYprgQo68", "title": "Ivory Coast vs Mozambique | EXTENDED HIGHLIGHTS AFCON 2025", "source": "beIN SPORTS USA" },
+    { "id": "EhOgP3ScW-s", "title": "Recent Sports Discussion & Highlights", "source": "Sports Channel" },
+    { "id": "Sh1neKNvfbU", "title": "AFCON Podcast Episode 5 | SuperSport", "source": "SuperSport" },
+    { "id": "tI5RC5ivGe8", "title": "AFCON Podcast Episode 4 | SuperSport", "source": "SuperSport" }
+  ]
+}

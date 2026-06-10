@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Article | Play Mode Africa</title>
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* ===== GLOBAL VARIABLES (matches homepage) ===== */
+        :root {
+            --primary-red: #D31E24;
+            --bg-dark: #0D0D0D;
+            --card-bg: #1A1A1A;
+            --card-bg-hover: #222222;
+            --text-white: #FFFFFF;
+            --text-grey: #A0A0A0;
+            --text-light: #CCCCCC;
+            --border: rgba(255,255,255,0.07);
+            --shadow: 0 8px 32px rgba(0,0,0,0.4);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-white);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        .container { max-width: 1380px; margin: 0 auto; padding: 0 20px; }
+
+        /* ===== LOGO ANIMATION (HOMEPAGE STYLE) ===== */
+        .logo-anim-wrap {
+            position: relative;
+            height: 40px;
+            width: 160px;
+            display: flex;
+            align-items: center;
+        }
+        .logo-frame {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 40px;
+            width: auto;
+            object-fit: contain;
+            opacity: 0;
+            transition: opacity 0.8s ease;
+        }
+        .logo-frame.active { opacity: 1; }
+
+        /* ===== HEADER (FIXED) ===== */
+        header {
+            padding: 15px 0;
+            background: rgba(13,13,13,0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1380px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 35px;
+            align-items: center;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-white);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            position: relative;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-red);
+            transition: var(--transition);
+        }
+        .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+        .nav-links a:hover, .nav-links a.active { color: var(--primary-red); }
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .search-icon { cursor: pointer; transition: var(--transition); }
+        .search-icon:hover { color: var(--primary-red); }
+        .btn-primary {
+            background: var(--primary-red);
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .btn-primary:hover { transform: scale(1.05); box-shadow: 0 0 20px rgba(211,30,36,0.4); }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+        .hamburger span {
+            width: 25px;
+            height: 2px;
+            background: var(--text-white);
+            transition: var(--transition);
+            border-radius: 2px;
+        }
+        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
+
+        /* ===== ARTICLE PAGE LAYOUT ===== */
+        .article-page-layout {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 40px 0 80px;
+        }
+        .article-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-grey);
+            font-size: 0.85rem;
+            font-weight: 500;
+            text-decoration: none;
+            margin-bottom: 28px;
+            transition: var(--transition);
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 0;
+        }
+        .article-back:hover { color: var(--text-white); }
+        .article-back svg { width: 16px; height: 16px; }
+        .article-meta-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 18px;
+            flex-wrap: wrap;
+        }
+        .article-category-badge {
+            background: var(--primary-red);
+            color: white;
+            padding: 4px 14px;
+            border-radius: 50px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+        .article-source-badge {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            padding: 4px 14px 4px 8px;
+            font-size: 0.78rem;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+        .article-source-avatar {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: var(--primary-red);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.6rem;
+            font-weight: 800;
+            flex-shrink: 0;
+        }
+        .article-pubdate {
+            font-size: 0.78rem;
+            color: var(--text-grey);
+            margin-left: auto;
+        }
+        .article-headline {
+            font-size: 2.2rem;
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: var(--text-white);
+        }
+        .article-hero-img-wrap {
+            width: 100%;
+            border-radius: 14px;
+            overflow: hidden;
+            margin-bottom: 28px;
+            aspect-ratio: 16/9;
+            background: var(--card-bg);
+            position: relative;
+        }
+        .article-hero-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: opacity 0.4s ease;
+        }
+        .article-img-skeleton {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg,#1e1e1e 25%,#2a2a2a 50%,#1e1e1e 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+            border-radius: 14px;
+        }
+        @keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
+        .article-excerpt-box {
+            background: var(--card-bg);
+            border-left: 3px solid var(--primary-red);
+            border-radius: 0 10px 10px 0;
+            padding: 20px 24px;
+            margin-bottom: 32px;
+            border-top: 1px solid var(--border);
+            border-right: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+        .article-excerpt-label {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--primary-red);
+            margin-bottom: 8px;
+        }
+        .article-excerpt-text {
+            font-size: 1.05rem;
+            line-height: 1.75;
+            color: var(--text-light);
+            font-weight: 400;
+        }
+        .article-cta-section {
+            background: linear-gradient(135deg,#1a1a1a 0%,#111 100%);
+            border: 1px solid rgba(211,30,36,0.2);
+            border-radius: 14px;
+            padding: 30px;
+            margin-bottom: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .article-cta-text h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 6px; }
+        .article-cta-text p { font-size: 0.85rem; color: var(--text-grey); }
+        .btn-continue {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--primary-red);
+            color: white;
+            text-decoration: none;
+            padding: 14px 28px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+        .btn-continue:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(211,30,36,0.45); }
+        .btn-continue svg { width: 16px; height: 16px; }
+        .article-share-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 48px;
+            flex-wrap: wrap;
+        }
+        .share-label {
+            font-size: 0.82rem;
+            color: var(--text-grey);
+            font-weight: 500;
+        }
+        .share-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 7px 16px;
+            border-radius: 50px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            border: 1px solid var(--border);
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            color: var(--text-white);
+            background: transparent;
+        }
+        .share-btn:hover {
+            background: rgba(255,255,255,0.07);
+            border-color: rgba(255,255,255,0.2);
+        }
+        .share-btn svg { width: 13px; height: 13px; }
+        .share-btn.copied { background: #16a34a22; border-color: #16a34a; color: #4ade80; }
+        .article-related-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border);
+        }
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+        .news-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: var(--transition);
+            cursor: pointer;
+            border: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            color: inherit;
+        }
+        .news-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(211,30,36,0.25);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+        }
+        .news-card-img-wrap {
+            overflow: hidden;
+            position: relative;
+        }
+        .news-card-img {
+            width: 100%;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            transition: var(--transition);
+            display: block;
+        }
+        .news-card:hover .news-card-img { transform: scale(1.03); }
+        .card-type-badge {
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            background: rgba(0,0,0,0.75);
+            backdrop-filter: blur(4px);
+            border-radius: 4px;
+            padding: 3px 8px;
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        .card-type-badge.news-type { color: #60a5fa; }
+        .news-card-body {
+            padding: 12px 14px 14px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .news-card-body h3 {
+            font-size: 0.92rem;
+            font-weight: 600;
+            line-height: 1.35;
+            margin-bottom: 8px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .card-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: auto;
+        }
+        .card-source {
+            font-size: 0.7rem;
+            color: var(--primary-red);
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        .card-time {
+            font-size: 0.68rem;
+            color: var(--text-grey);
+        }
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+        }
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: #111;
+            padding: 60px 0 20px;
+            border-top: 1px solid var(--border);
+            margin-top: 40px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        .footer-logo { height: 35px; margin-bottom: 15px; }
+        .footer-brand p { color: var(--text-grey); font-size: 0.9rem; max-width: 300px; }
+        .social-icons { display: flex; gap: 15px; margin-top: 20px; }
+        .social-icons i { cursor: pointer; transition: var(--transition); color: var(--text-grey); font-size: 1.2rem; }
+        .social-icons i:hover { color: var(--primary-red); transform: translateY(-3px); }
+        .footer-links h4 { color: var(--text-white); margin-bottom: 20px; font-size: 1rem; }
+        .footer-links ul { list-style: none; }
+        .footer-links ul li { margin-bottom: 10px; }
+        .footer-links ul li a { color: var(--text-grey); text-decoration: none; transition: var(--transition); font-size: 0.9rem; }
+        .footer-links ul li a:hover { color: var(--primary-red); }
+        .footer-bottom { border-top: 1px solid var(--border); padding-top: 20px; text-align: center; color: var(--text-grey); font-size: 0.85rem; }
+
+        @media (max-width: 992px) {
+            .related-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .hamburger { display: flex; }
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 80%;
+                height: calc(100vh - 70px);
+                background: var(--bg-dark);
+                flex-direction: column;
+                padding: 40px 30px;
+                transition: var(--transition);
+                border-right: 1px solid var(--border);
+                gap: 25px;
+                align-items: flex-start;
+                z-index: 999;
+            }
+            .nav-links.open { left: 0; }
+            .nav-links a { font-size: 1.2rem; }
+            .article-headline { font-size: 1.5rem; }
+            .article-cta-section { flex-direction: column; align-items: flex-start; }
+            .btn-continue { width: 100%; justify-content: center; }
+            .related-grid { grid-template-columns: 1fr; }
+            .article-pubdate { margin-left: 0; }
+            .footer-grid { grid-template-columns: 1fr !important; gap: 30px; }
+        }
+        @media (max-width: 480px) {
+            .article-headline { font-size: 1.3rem; }
+            .article-excerpt-text { font-size: 0.95rem; }
+            .article-share-row { gap: 8px; }
+            .share-btn { padding: 5px 12px; font-size: 0.7rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== HEADER WITH LOGO ANIMATION (HOMEPAGE STYLE) ===== -->
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <div class="logo-anim-wrap">
+                    <img src="assets/play-mode-logo.png" class="logo-frame logo-frame-0 active" alt="Play Mode Africa">
+                    <img src="assets/playMODE LOGO 1.png" class="logo-frame logo-frame-1" alt="Play Mode Africa">
+                    <img src="assets/plaYMODE LOGO 2.png" class="logo-frame logo-frame-2" alt="Play Mode Africa">
+                    <img src="assets/plaYMODE LOGO landscape colour 2.png" class="logo-frame logo-frame-3" alt="Play Mode Africa">
+                    <img src="assets/plaYMODE LOGO landscape colour 3.png" class="logo-frame logo-frame-4" alt="Play Mode Africa">
+                    <img src="assets/plaYMODE LOGO landscape colour 4.png" class="logo-frame logo-frame-5" alt="Play Mode Africa">
+                    <img src="assets/plaYMODE LOGO landscape colour 5.png" class="logo-frame logo-frame-6" alt="Play Mode Africa">
+                    <img src="assets/plaYMODE LOGO landscape colour 6.png" class="logo-frame logo-frame-7" alt="Play Mode Africa">
+                    <img src="assets/plaYMODE LOGO landscape colour 7.png" class="logo-frame logo-frame-8" alt="Play Mode Africa">
+                    <img src="assets/plaYMODE LOGO landscape.png" class="logo-frame logo-frame-9" alt="Play Mode Africa">
+                    <img src="assets/plaYMODE LOGO portrait col2.png" class="logo-frame logo-frame-10" alt="Play Mode Africa">
+                    <img src="assets/plaYMODE LOGO portrait.png" class="logo-frame logo-frame-11" alt="Play Mode Africa">
+                </div>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">Broadcasting</a></li>
+                <li><a href="#">Live Streams</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+            <div class="nav-actions">
+                <i data-lucide="search" class="search-icon"></i>
+                <button class="btn-primary">Subscribe</button>
+                <div class="hamburger" id="hamburger">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ===== ARTICLE CONTENT ===== -->
+    <div class="container">
+        <div class="article-page-layout" id="article-content">
+            <button class="article-back" onclick="history.back()">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+                Back to Home
+            </button>
+            <div class="article-meta-row" id="article-meta-row"></div>
+            <h1 class="article-headline" id="article-headline">Loading...</h1>
+            <div class="article-hero-img-wrap">
+                <div class="article-img-skeleton" id="img-skeleton"></div>
+                <img id="article-hero-img" src="" alt="" style="opacity:0">
+            </div>
+            <div class="article-excerpt-box">
+                <div class="article-excerpt-label">Summary</div>
+                <p class="article-excerpt-text" id="article-excerpt">Loading article summary...</p>
+            </div>
+            <div class="article-cta-section">
+                <div class="article-cta-text">
+                    <h3>Read the Full Article</h3>
+                    <p>Continue to the original source to read the complete story.</p>
+                </div>
+                <a id="continue-reading-btn" href="#" target="_blank" rel="noopener" class="btn-continue">
+                    Continue Reading
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                </a>
+            </div>
+            <div class="article-share-row" id="share-row">
+                <span class="share-label">Share:</span>
+                <a id="share-twitter" href="#" target="_blank" rel="noopener" class="share-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622Zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    Twitter
+                </a>
+                <a id="share-facebook" href="#" target="_blank" rel="noopener" class="share-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    Facebook
+                </a>
+                <a id="share-whatsapp" href="#" target="_blank" rel="noopener" class="share-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    WhatsApp
+                </a>
+                <button class="share-btn copy-btn" id="copy-link-btn" onclick="copyLink()">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                    Copy Link
+                </button>
+            </div>
+            <div id="related-section">
+                <h2 class="article-related-title">More Stories</h2>
+                <div class="related-grid" id="related-grid"></div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <img src="assets/play-mode-logo.png" alt="Play Mode Africa" class="footer-logo">
+                <p>Africa's leading media streaming platform. A subsidiary of Stream Guys Media.</p>
+                <div class="social-icons"><i data-lucide="facebook"></i><i data-lucide="twitter"></i><i data-lucide="instagram"></i><i data-lucide="youtube"></i></div>
+            </div>
+            <div class="footer-links"><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="#">Broadcasting</a></li><li><a href="#">Live Streams</a></li><li><a href="#">Blog</a></li><li><a href="#">About Us</a></li></ul></div>
+            <div class="footer-links"><h4>Categories</h4><ul><li><a href="#">Politics</a></li><li><a href="#">Finance</a></li><li><a href="#">Business</a></li><li><a href="#">Technology</a></li><li><a href="#">Health & Climate</a></li></ul></div>
+            <div class="footer-links"><h4>Contact</h4><ul><li><a href="mailto:dummy@playmodeafrica.com">dummy@playmodeafrica.com</a></li><li><a href="tel:07031114425">0703 111 4425</a></li><li><a href="#">4 Presidential drive, Nsugbe, Anambra, Nigeria</a></li></ul></div>
+        </div>
+        <div class="footer-bottom"><p>© 2026 Play Mode Africa. A subsidiary of <strong>Stream Guys Media</strong>.</p></div>
+    </footer>
+
+    <script>
+        // ===== LOGO ANIMATION (homepage style) =====
+        (function initLogoAnim() {
+            const frames = document.querySelectorAll('.logo-frame');
+            if (!frames.length) return;
+            let current = 0;
+            setInterval(() => {
+                frames[current].classList.remove('active');
+                current = (current + 1) % frames.length;
+                frames[current].classList.add('active');
+            }, 5000);
+        })();
+
+        // ===== HAMBURGER MENU =====
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        if (hamburger && navLinks) {
+            hamburger.addEventListener('click', function() {
+                navLinks.classList.toggle('open');
+                this.classList.toggle('active');
+            });
+            navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+                navLinks.classList.remove('open');
+                hamburger.classList.remove('active');
+            }));
+            window.addEventListener('resize', () => {
+                if (window.innerWidth > 768) { navLinks.classList.remove('open'); hamburger.classList.remove('active'); }
+            });
+        }
+
+        // ===== PARSE URL PARAMS =====
+        const params = new URLSearchParams(window.location.search);
+        const extUrl = params.get('url') || '#';
+        const title = params.get('title') || 'Untitled Article';
+        const image = params.get('image') || '';
+        const source = params.get('source') || 'Unknown Source';
+        const desc = params.get('description') || 'No summary available for this article.';
+        const pubDate = params.get('pubDate') || '';
+        const category = params.get('category') || 'News';
+
+        document.title = `${title} | Play Mode Africa`;
+        document.getElementById('article-headline').textContent = title;
+        
+        const imgEl = document.getElementById('article-hero-img');
+        if (image) {
+            imgEl.src = image;
+            imgEl.alt = title;
+            imgEl.onload = function() { this.style.opacity = '1'; document.getElementById('img-skeleton').style.display = 'none'; };
+            imgEl.onerror = function() {
+                this.src = 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=1200&q=80';
+                this.style.opacity = '1';
+                document.getElementById('img-skeleton').style.display = 'none';
+            };
+        } else {
+            imgEl.src = 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=1200&q=80';
+            imgEl.style.opacity = '1';
+            document.getElementById('img-skeleton').style.display = 'none';
+        }
+
+        document.getElementById('article-excerpt').textContent = desc || 'No summary available.';
+        document.getElementById('continue-reading-btn').href = extUrl;
+
+        const initials = source.slice(0, 2).toUpperCase();
+        const timeStr = pubDate ? timeAgo(pubDate) : '';
+        document.getElementById('article-meta-row').innerHTML = `
+            <span class="article-category-badge">${category}</span>
+            <span class="article-source-badge"><span class="article-source-avatar">${initials}</span>${source}</span>
+            ${timeStr ? `<span class="article-pubdate">${timeStr}</span>` : ''}
+        `;
+
+        const pageUrl = window.location.href;
+        const encodedUrl = encodeURIComponent(extUrl);
+        const encodedTitle = encodeURIComponent(title);
+        document.getElementById('share-twitter').href = `https://twitter.com/intent/tweet?text=${encodedTitle}&url=${encodedUrl}`;
+        document.getElementById('share-facebook').href = `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`;
+        document.getElementById('share-whatsapp').href = `https://wa.me/?text=${encodedTitle}%20${encodedUrl}`;
+
+        function timeAgo(dateStr) {
+            const diff = Date.now() - new Date(dateStr).getTime();
+            const mins = Math.floor(diff / 60000);
+            if (mins < 60) return `${mins} min ago`;
+            const hrs = Math.floor(mins / 60);
+            if (hrs < 24) return `${hrs} hour${hrs > 1 ? 's' : ''} ago`;
+            return `${Math.floor(hrs / 24)} day${Math.floor(hrs / 24) > 1 ? 's' : ''} ago`;
+        }
+
+        function copyLink() {
+            navigator.clipboard.writeText(extUrl).then(() => {
+                const btn = document.getElementById('copy-link-btn');
+                btn.classList.add('copied');
+                btn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Copied!`;
+                setTimeout(() => {
+                    btn.classList.remove('copied');
+                    btn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy Link`;
+                }, 2500);
+            });
+        }
+
+        const NEWS_API_KEY = 'pub_48088daded4b4d86bac3ec31ad15a705';
+        const NEWS_API_BASE = 'https://newsdata.io/api/1/news';
+
+        async function loadRelated() {
+            const relatedGrid = document.getElementById('related-grid');
+            relatedGrid.innerHTML = [1,2,3].map(() => `
+                <div class="news-card" style="pointer-events:none">
+                    <div style="aspect-ratio:16/9;background:linear-gradient(90deg,#1e1e1e 25%,#2a2a2a 50%,#1e1e1e 75%);background-size:200% 100%;animation:shimmer 1.5s infinite;border-radius:12px 12px 0 0"></div>
+                    <div class="news-card-body"><div style="height:14px;border-radius:4px;background:linear-gradient(90deg,#1e1e1e 25%,#2a2a2a 50%,#1e1e1e 75%);background-size:200% 100%;animation:shimmer 1.5s infinite;margin-bottom:8px;width:90%"></div><div style="height:14px;border-radius:4px;background:linear-gradient(90deg,#1e1e1e 25%,#2a2a2a 50%,#1e1e1e 75%);background-size:200% 100%;animation:shimmer 1.5s infinite;width:60%"></div></div>
+                </div>`).join('');
+            try {
+                const catParam = category && category !== 'News' ? `&category=${category.toLowerCase()}` : '';
+                const res = await fetch(`${NEWS_API_BASE}?apikey=${NEWS_API_KEY}&language=en&size=6&q=africa${catParam}`);
+                const data = await res.json();
+                if (data.status === 'success' && data.results?.length) {
+                    const related = data.results.filter(a => a.link !== extUrl).slice(0, 3);
+                    relatedGrid.innerHTML = related.map(a => {
+                        const aImg = a.image_url || 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=600&q=80';
+                        const aTitle = a.title || 'Untitled';
+                        const aSource = a.source_id || 'News';
+                        const aTime = a.pubDate ? timeAgo(a.pubDate) : '';
+                        const aParams = new URLSearchParams({ url: a.link || '', title: aTitle, image: aImg, source: aSource, description: a.description || '', pubDate: a.pubDate || '', category: a.category?.[0] || 'News' });
+                        return `<a href="article.html?${aParams}" class="news-card animate-on-scroll" style="text-decoration:none;color:inherit"><div class="news-card-img-wrap"><img class="news-card-img" src="${aImg}" alt="${aTitle}" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=600&q=80'"><span class="card-type-badge news-type">Article</span></div><div class="news-card-body"><h3>${aTitle}</h3><div class="card-footer"><span class="card-source">${aSource}</span><span class="card-time">${aTime}</span></div></div></a>`;
+                    }).join('');
+                    setTimeout(() => { document.querySelectorAll('.animate-on-scroll').forEach(el => el.classList.add('visible')); }, 100);
+                } else { document.getElementById('related-section').style.display = 'none'; }
+            } catch (err) { document.getElementById('related-section').style.display = 'none'; }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => { loadRelated(); lucide.createIcons(); });
+        window.copyLink = copyLink;
+    </script>
+</body>
+</html>

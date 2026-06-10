@@ -1,0 +1,441 @@
+/* ================================================================= */
+/* CORE UTILITIES & VIEWS ROUTING                                    */
+/* ================================================================= */
+.about-view-wrapper {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+}
+.about-view-wrapper.active {
+    display: block;
+    opacity: 1;
+}
+
+.about-section {
+    padding: 85.5px 0;
+}
+.card-accent-bg {
+    background: #111111;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+.border-top-divider {
+    border-top: 1px solid var(--border);
+    padding-top: 76px;
+}
+
+/* ================================================================= */
+/* HERO ARCHITECTURE (PLAY MODE & STREAM GUYS SPACES)               */
+/* ================================================================= */
+.about-hero, .sg-hero {
+    height: 71.25vh;
+    min-height: 522.5px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+.about-hero {
+    background-image: url('https://images.unsplash.com/photo-1495020689067-958852a7765e?auto=format&fit=crop&w=1800&q=80');
+}
+.sg-hero {
+    background-image: url('https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&q=80&w=1920');
+}
+.about-hero-overlay, .sg-hero-overlay {
+    position: absolute;
+    inset: 0;
+}
+.about-hero-overlay {
+    background: linear-gradient(135deg, rgba(13,13,13,0.95) 40%, rgba(211,30,36,0.2) 100%);
+}
+.sg-hero-overlay {
+    background: linear-gradient(135deg, rgba(13,13,13,0.95) 40%, rgba(30,95,168,0.15) 100%);
+}
+.about-hero-content, .sg-hero-content {
+    position: relative;
+    z-index: 5;
+    max-width: 760px;
+}
+.about-hero-content h1, .sg-hero-content h1 {
+    font-size: 3.42rem;
+    line-height: 1.15;
+    margin: 20.9px 0;
+    font-weight: 900;
+    letter-spacing: -0.95px;
+}
+.about-hero-content p, .sg-hero-content p {
+    font-size: 1.0925rem;
+    color: var(--text-grey);
+    max-width: 589px;
+    margin-bottom: 33.25px;
+    line-height: 1.65;
+}
+.about-hero-btns {
+    display: flex;
+    gap: 14.25px;
+}
+
+/* ================================================================= */
+/* TWO-COLUMN GRID SYSTEM                                            */
+/* ================================================================= */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 66.5px;
+    align-items: center;
+}
+.about-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 13.3px;
+    display: block;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+}
+.category-accent {
+    color: var(--primary-red);
+    font-size: 0.76rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.9px;
+    display: inline-block;
+    margin-bottom: 11.4px;
+}
+.about-text h2 {
+    font-size: 2.09rem;
+    font-weight: 800;
+    line-height: 1.25;
+    margin-bottom: 19px;
+}
+.about-text p {
+    color: var(--text-light);
+    margin-bottom: 17.1px;
+    font-size: 0.931rem;
+}
+
+/* ================================================================= */
+/* TEXT HEADER GENERICS                                              */
+/* ================================================================= */
+.section-header {
+    text-align: center;
+    max-width: 665px;
+    margin: 0 auto 52.25px;
+}
+.section-header h2 {
+    font-size: 2.28rem;
+    font-weight: 800;
+    margin-bottom: 13.3px;
+}
+.section-header p {
+    color: var(--text-grey);
+    font-size: 0.95rem;
+}
+
+/* ================================================================= */
+/* COVERAGE & PRODUCTION GRID CARDS                                  */
+/* ================================================================= */
+.coverage-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22.8px;
+}
+.coverage-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 13.3px;
+    padding: 33.25px;
+    transition: var(--transition);
+}
+.coverage-card:hover {
+    transform: translateY(-4.75px);
+    border-color: rgba(211,30,36, 0.35);
+    box-shadow: var(--shadow);
+}
+.card-icon {
+    font-size: 1.9rem;
+    margin-bottom: 19px;
+    display: inline-block;
+}
+.coverage-card h3 {
+    font-size: 1.1875rem;
+    font-weight: 700;
+    margin-bottom: 11.4px;
+}
+.coverage-card p {
+    color: var(--text-grey);
+    font-size: 0.836rem;
+    line-height: 1.55;
+}
+
+/* ================================================================= */
+/* PREMIUM DESIGN SYSTEM FEATURED BOX BLOCK                          */
+/* ================================================================= */
+.featured-story-block {
+    background: var(--card-bg);
+    border-radius: 15.2px;
+    border: 1px solid var(--border);
+    padding: 47.5px;
+    position: relative;
+    overflow: hidden;
+}
+.featured-story-block::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 3.8px; height: 100%;
+    background: var(--primary-red);
+}
+.fs-block-content h2 {
+    font-size: 2.09rem;
+    font-weight: 800;
+    margin-bottom: 17.1px;
+}
+.fs-block-content p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    margin-bottom: 14.25px;
+    max-width: 950px;
+}
+
+/* ================================================================= */
+/* MISSION ARCHITECTURE                                              */
+/* ================================================================= */
+.mission-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28.5px;
+}
+.mission-card {
+    background: var(--card-bg);
+    border-radius: 13.3px;
+    border: 1px solid var(--border);
+    padding: 38px;
+    display: flex;
+    flex-direction: column;
+    gap: 14.25px;
+}
+.card-icon-accent {
+    width: 42.75px;
+    height: 42.75px;
+    border-radius: 7.6px;
+    background: rgba(211,30,36,0.12);
+    border: 1px solid rgba(211,30,36,0.25);
+    color: var(--primary-red);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.14rem;
+}
+.mission-card h3 {
+    font-size: 1.2825rem;
+    font-weight: 700;
+}
+.mission-card p {
+    color: var(--text-grey);
+    font-size: 0.874rem;
+    line-height: 1.6;
+}
+
+/* ================================================================= */
+/* STREAM GUYS BANNER SYSTEM                                         */
+/* ================================================================= */
+.stream-guys-banner {
+    background: linear-gradient(135deg, #161616 0%, #0d0d0d 100%);
+    border: 1px solid rgba(211,30,36, 0.25);
+    border-radius: 17.1px;
+    padding: 57px 38px;
+    text-align: center;
+    box-shadow: var(--shadow);
+}
+.stream-guys-banner h2 {
+    font-size: 2.28rem;
+    font-weight: 800;
+    margin: 17.1px auto;
+    max-width: 665px;
+}
+.stream-guys-banner p {
+    color: var(--text-grey);
+    font-size: 0.9975rem;
+    max-width: 779px;
+    margin: 0 auto 28.5px;
+    line-height: 1.65;
+}
+
+.sg-quote {
+    border-left: 2.85px solid var(--primary-red);
+    padding-left: 19px;
+    margin: 23.75px 0;
+    font-style: italic;
+    color: var(--text-white);
+    font-size: 1.045rem;
+    line-height: 1.5;
+}
+
+/* ================================================================= */
+/* CONVERSION CTA END LABELS                                         */
+/* ================================================================= */
+.final-cta {
+    text-align: center;
+    max-width: 712.5px;
+    margin: 0 auto;
+}
+.final-cta h2 {
+    font-size: 2.375rem;
+    font-weight: 800;
+    margin-bottom: 14.25px;
+}
+.final-cta p {
+    color: var(--text-grey);
+    font-size: 0.9975rem;
+}
+
+/* ================================================================= */
+/* LOGO SEQUENTIAL FADE CORE ENGINE                                  */
+/* ================================================================= */
+.logo-anim-wrap {
+    position: relative;
+    display: block;
+    width: 180px;
+    height: 45px;
+}
+.logo-frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.8s ease-in-out, visibility 0.8s ease-in-out;
+}
+.logo-frame.active {
+    opacity: 1;
+    visibility: visible;
+    position: relative;
+    z-index: 2;
+}
+
+/* ===== CUSTOM TOP SEARCH BAR OVERLAY ===== */
+.custom-search-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #0D0D0D;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    opacity: 0;
+    pointer-events: none;
+    transition: var(--transition);
+    z-index: 1001;
+    padding: 0 20px;
+}
+.custom-search-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+.custom-search-form {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid var(--border);
+    border-radius: 50px;
+    padding: 5px 15px;
+    transition: var(--transition);
+}
+.custom-search-form:focus-within {
+    border-color: var(--primary-red);
+    background: rgba(255,255,255,0.1);
+}
+.custom-search-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--text-white);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    padding: 6px 10px;
+}
+.custom-search-input::placeholder {
+    color: var(--text-grey);
+}
+.custom-search-submit {
+    background: transparent;
+    border: none;
+    color: var(--text-grey);
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.custom-search-submit:hover {
+    color: var(--primary-red);
+}
+.custom-search-close {
+    background: transparent;
+    border: none;
+    color: var(--text-grey);
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
+}
+.custom-search-close:hover {
+    color: var(--primary-red);
+}
+
+/* ================================================================= */
+/* MOBILE RESPONSIVE MEDIA PIPELINES                                 */
+/* ================================================================= */
+@media (max-width: 992px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 38px;
+    }
+    .coverage-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .about-hero-content h1, .sg-hero-content h1 {
+        font-size: 2.66rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-section {
+        padding: 57px 0;
+    }
+    .coverage-grid {
+        grid-template-columns: 1fr;
+    }
+    .mission-grid {
+        grid-template-columns: 1fr;
+    }
+    .about-hero-content h1, .sg-hero-content h1 {
+        font-size: 2.09rem;
+    }
+    .stream-guys-banner {
+        padding: 38px 19px;
+    }
+    .stream-guys-banner h2 {
+        font-size: 1.71rem;
+    }
+    .about-hero-btns {
+        flex-direction: column;
+        gap: 9.5px;
+    }
+    .about-hero-btns a, .about-hero-btns button {
+        width: 100%;
+        text-align: center;
+    }
+}

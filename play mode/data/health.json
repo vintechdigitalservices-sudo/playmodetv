@@ -1,0 +1,33 @@
+{
+  "category": "Health",
+  "auto_feeds": [
+    { "source": "World Health Organization", "playlist_id": "PL9S6xGsoqIBU2V6AZY7XU6GPP6_X-H-xR", "type": "Global Briefings" },
+    { "source": "Mayo Clinic", "playlist_id": "PLSWR1ylG_6JYh_pNA_be_L3-67GiHzkXR", "type": "Medical Explanations" },
+    { "source": "TED", "playlist_id": "PLAWu34VO7OtIKdfaDubo_8EEKikYO6hGB", "type": "Wellness Talks" },
+    { "source": "Africa CDC", "playlist_id": "PLEonAwHempus9Y_ijzizeJD0QIdBP5xQj", "type": "Regional Health Security" }
+  ],
+  "random_bank": [
+    { "id": "M7CLstFQfHM", "title": "LIVE: Media briefing on global health issues", "source": "WHO" },
+    { "id": "WK0l-W3XErk", "title": "Mayo Clinic Proceedings May 2026 Issue Summary", "source": "Mayo Clinic" },
+    { "id": "LpSDuDIaBGk", "title": "Why Social Health Is Key to Happiness and Longevity", "source": "TED" },
+    { "id": "3xYcM06BhPc", "title": "Special Briefing on Mpox and other Health Emergencies", "source": "Africa CDC" },
+    { "id": "hApR-S2Ol4s", "title": "From Outbreak to Readiness: Africa's United Response to Mpox", "source": "Africa CDC" },
+    { "id": "h2aWYjSA1Jc", "title": "Tools for Optimizing Sleep & Sleep-Wake Timing", "source": "Huberman Lab" },
+    { "id": "hNWa7zJIsko", "title": "The Health Lies That Are Keeping You Sick", "source": "Doctor Mike" },
+    { "id": "ghTCvGimadE", "title": "The Longevity Toolkit: Peter Attia’s 5 Tactics to Improve Longevity", "source": "Peter Attia MD" },
+    { "id": "3iZJD-rVojI", "title": "AI in Surgery: Where Healthcare is Actually Heading (TED 2026)", "source": "TED" },
+    { "id": "fC541Rsi7rk", "title": "Beyond the Code: AI Matched Heart Transplants", "source": "Mayo Clinic" },
+    { "id": "U5kgE1Q51M0", "title": "Yoga For Renewal | 45-Minute Yoga Practice", "source": "Yoga with Adriene" },
+    { "id": "5fuqUG0OlWQ", "title": "LIVE | Media briefing on hantavirus and other global health issues", "source": "WHO" },
+    { "id": "i2rpKbxjlyA", "title": "Back Pain Relief: When to Worry & What Helps", "source": "Mayo Clinic" },
+    { "id": "g6DdOHaAmSQ", "title": "Wake Up | 10 Minute Morning Yoga", "source": "Yoga with Adriene" },
+{ "id": "peihaA0diaY",  "title": "SAVING LIVES AND LIVELIHOODS | Nigeria | The Last Mile", 
+  "source": "Africa CDC" },
+}
+    { "id": "JaRGJVrJBQ8", "title": "The Science & Practice of Perfecting Your Sleep", "source": "Huberman Lab" },
+    { "id": "9qYzmfo1xp0", "title": "ASK DOCTOR MIKE: MEDICAL MYTHS EXPOSED", "source": "Doctor Mike" },
+    { "id": "qLf_1rFrlRs", "title": "How to Train Your Cardiovascular Fitness for Longevity", "source": "Peter Attia MD" },
+    { "id": "eyM4_zUMw0U", "title": "Mayo Clinic Minute: How to be healthier", "source": "Mayo Clinic" },
+    { "id": "ksOTrl0zM5A", "title": "LIVE | Media briefing on global health issues", "source": "WHO" }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "category": "Discovery",
+  "description": "Personalized mix of trending global and local content",
+  "random_bank": [
+    { "id": "KW21q_7U6Ao", "title": "What's on my Phone 2026! - MKBHD", "source": "Tech", "priority": "high" },
+    { "id": "EdcLoI1UCaQ", "title": "Global Economic Outlook 2026 - Torsten Sløk & Larry Summers", "source": "Politics", "priority": "high" },
+    { "id": "sL484V7u9Mk", "title": "What 10 Years Did to Earth: NASA's New 2026 Black Marble", "source": "Weather", "priority": "medium" },
+    { "id": "p4jc-X1OOXo", "title": "Africa CEO Forum 2026: African Business Thinking Big", "source": "Business", "priority": "high" },
+    { "id": "WUUep-Hf03Y", "title": "WHO launches 2026 Health Emergency Appeal", "source": "Health", "priority": "medium" },
+    { "id": "DR-z0cYLhlg", "title": "Global Trends and Geopolitics in 2026: A Look Ahead", "source": "Politics", "priority": "medium" },
+    { "id": "7x8_edpZNdM", "title": "The Stock Market Playbook for 2026", "source": "Finance", "priority": "high" },
+    { "id": "Onf4s1U5BoU", "title": "13 Most Expensive Tech Fails of All Time", "source": "Tech", "priority": "medium" },
+    { "id": "RpHAIgoDxUM", "title": "IMF World Economic Outlook Press Briefing April 2026", "source": "Business", "priority": "high" },
+    { "id": "4AwyVTHEU3s", "title": "How to Focus to Change Your Brain | Huberman Lab", "source": "Health", "priority": "medium" },
+    { "id": "ZpUefu7Ww8s", "title": "NASA ISS Live Stream 4K - Real-Time Earth from Space", "source": "Weather", "priority": "medium" },
+    { "id": "LZ9paHgvSbE", "title": "Focus On Inclusive FinTech Forum 2026 - Africa Insights", "source": "Finance", "priority": "medium" },
+    { "id": "lCS3OIMFUhQ", "title": "BBC Newscast Review of the Year 2025", "source": "Politics", "priority": "high" },
+    { "id": "TPqmGfulrfw", "title": "CES 2026 Actually Has Some Bangers? - Waveform (MKBHD)", "source": "Tech", "priority": "medium" },
+    { "id": "5wHyklLr_FA", "title": "How to Improve Your Attention & Focus | Huberman Lab", "source": "Health", "priority": "medium" },
+    { "id": "F9I03PZaOxw", "title": "Global Economic Prospects: Spring 2026 - PIIE", "source": "Politics", "priority": "medium" },
+    { "id": "-_L5ZN-VnD0", "title": "How SpaceX Will Build a City on Mars", "source": "Tech", "priority": "high" },
+    { "id": "VAuyJfP_l_4", "title": "WHAT IS FINTECH IN 2026 - Africa Trends", "source": "Business", "priority": "medium" },
+    { "id": "yb5zpo5WDG4", "title": "Focus Toolkit: Tools to Improve Focus & Concentration - Huberman", "source": "Health", "priority": "medium" },
+    { "id": "FuS1N15r3vI", "title": "NASA View Earth from Space: ISS Live Feed", "source": "Weather", "priority": "medium" }
+  ]
+}

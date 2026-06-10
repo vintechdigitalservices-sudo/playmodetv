@@ -1,0 +1,29 @@
+{
+  "category": "Finance",
+  "auto_feeds": [
+    { "source": "Bloomberg TV", "playlist_id": "PLGaYlBJIOoa9ubuZWkdlPKN-XGVvWGlBe", "type": "Global Markets" },
+    { "source": "CNBC International", "playlist_id": "PLaqf4I4NEUbkl9zTbI2xUUAjVUAys0eqe", "type": "Business News" },
+    { "source": "Channels TV", "playlist_id": "UUEXGDNclvmg6RW0vipJYsTQ", "type": "Business Morning" }
+  ],
+  "random_bank": [
+    { "id": "WBPaDHhbJIQ", "title": "Oil Market Prospects for 2025 and Beyond", "source": "Bloomberg" },
+    { "id": "dQP5lhvsoWE", "title": "Oil Prices Rise Amid Geopolitical Risks and Supply Concerns", "source": "BNN Bloomberg" },
+    { "id": "8Qm9fGCdckk", "title": "Is the Oil Crisis About to Break Global Supply Chains?", "source": "Prof G Markets" },
+    { "id": "BXIHbkRffJE", "title": "Global Bond Selloff Deepens as Rising Oil Prices Spook Investors", "source": "Bloomberg" },
+    { "id": "EQcWkxAs8Y8", "title": "Supply Chain Expert Warns of Knock-On Effect as Oil Prices Rise", "source": "Forbes" },
+    { "id": "oR0o-7v5W2s", "title": "Wartime Energy Economics: Oil Prices Rise as Supply Tightens", "source": "Energy Shots" },
+    { "id": "TPDJIH1Z2Aw", "title": "Bloomberg Money Minute: Oil Rises on Ceasefire Hopes", "source": "Bloomberg" },
+    { "id": "G7HzmA6kvmk", "title": "Oil Demand Is About to Spike", "source": "Bloomberg" },
+    { "id": "xWUBLuXXdqs", "title": "Has Sustainable Investing Peaked?", "source": "Financial Times" },
+    { "id": "J5KsJ4Of1Qg", "title": "The Future of Sustainable Investing", "source": "ETF.com" },
+    { "id": "XeguDVcgJ9Q", "title": "Investing in the Sustainable Development Goals", "source": "World Bank" },
+    { "id": "r62qRS8BimU", "title": "Crypto Tokens Climb as Investors Hope for Friendlier US Regulation", "source": "CNBC Crypto World" },
+    { "id": "cl2QN2lptZI", "title": "Bitcoin Climbs as Crypto Regulation Bills Stumble in Congress", "source": "CNBC Crypto World" },
+    { "id": "K8q3do_gBy0", "title": "Bitcoin Falls as Fed Lowers Rates in Final 2024 Decision", "source": "CNBC Crypto World" },
+    { "id": "akXZ6CihYZw", "title": "XRP Rises as Ripple Launches RLUSD Stablecoin", "source": "CNBC Crypto World" },
+    { "id": "jog5rTOtj8g", "title": "Bitcoin's Post-Election Rally Continues as Fed Cuts Rates", "source": "CNBC Crypto World" },
+    { "id": "luvWa07zWws", "title": "Bitcoin Tests $100,000 Heading Into the Weekend", "source": "CNBC Crypto World" },
+    { "id": "xLqNSjvzFZU", "title": "Oil Prices Plunge, Global Inflation Fears | Bloomberg Daybreak", "source": "Bloomberg" },
+    { "id": "Wl8yiHDDFgY", "title": "Markets Extend Downturn | Closing Bell", "source": "Bloomberg" }
+  ]
+}

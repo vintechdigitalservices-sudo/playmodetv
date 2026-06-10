@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Post | Play Mode Africa</title>
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="blog.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* FIX: Override logo animation issues */
+        .logo-anim-wrap {
+            position: relative;
+            height: 40px;
+            width: 140px;
+            overflow: hidden;
+        }
+        .logo-frame {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 40px;
+            width: auto;
+            object-fit: contain;
+            opacity: 0;
+            transition: opacity 0.8s ease;
+        }
+        .logo-frame.active {
+            opacity: 1;
+        }
+        /* Fix nav layout */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1380px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 35px;
+            align-items: center;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #FFFFFF;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+        .nav-links a:hover {
+            color: #D31E24;
+        }
+        .nav-links a.active {
+            color: #D31E24;
+        }
+        /* Fix logo display */
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        /* Blog post specific fixes */
+        .blog-post-container {
+            padding: 40px 20px 80px;
+            max-width: 860px;
+            margin: 0 auto;
+        }
+        .blog-post {
+            animation: fadeIn 0.6s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .blog-post-loading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            padding: 80px 20px;
+            color: #A0A0A0;
+            font-size: 1rem;
+        }
+        .blog-post-loading .spinner {
+            width: 28px;
+            height: 28px;
+            border: 3px solid rgba(255,255,255,0.1);
+            border-top-color: #D31E24;
+            border-radius: 50%;
+            animation: spin 0.7s linear infinite;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        .blog-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #A0A0A0;
+            font-size: 0.85rem;
+            font-weight: 500;
+            text-decoration: none;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 0;
+        }
+        .blog-back:hover {
+            color: #FFFFFF;
+            gap: 12px;
+        }
+        .blog-post-header {
+            margin-bottom: 28px;
+        }
+        .blog-category-header {
+            display: inline-block;
+            background: #D31E24;
+            color: white;
+            padding: 4px 16px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin-bottom: 14px;
+        }
+        .blog-post-title {
+            font-size: 2.4rem;
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 18px;
+            color: #FFFFFF;
+        }
+        .blog-post-meta {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            font-size: 0.85rem;
+            color: #A0A0A0;
+            flex-wrap: wrap;
+        }
+        .blog-post-meta i {
+            margin-right: 6px;
+            font-size: 0.8rem;
+        }
+        .blog-post-image {
+            width: 100%;
+            border-radius: 16px;
+            overflow: hidden;
+            margin-bottom: 32px;
+            aspect-ratio: 16/9;
+            background: #1A1A1A;
+        }
+        .blog-post-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .blog-post-body {
+            font-size: 1.05rem;
+            line-height: 1.9;
+            color: #CCCCCC;
+        }
+        .blog-post-body h2 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin: 36px 0 18px;
+            color: #FFFFFF;
+        }
+        .blog-post-body h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin: 28px 0 14px;
+            color: #FFFFFF;
+        }
+        .blog-post-body p {
+            margin-bottom: 18px;
+        }
+        .blog-post-body ul, .blog-post-body ol {
+            margin: 18px 0 22px 28px;
+        }
+        .blog-post-body li {
+            margin-bottom: 10px;
+            line-height: 1.7;
+        }
+        .blog-post-body blockquote {
+            border-left: 4px solid #D31E24;
+            padding: 18px 24px;
+            margin: 28px 0;
+            background: rgba(211,30,36,0.05);
+            border-radius: 0 10px 10px 0;
+            font-style: italic;
+            color: #CCCCCC;
+        }
+        .blog-cta {
+            background: linear-gradient(135deg, #1A1A1A 0%, #111 100%);
+            border: 1px solid rgba(211,30,36,0.2);
+            border-radius: 16px;
+            padding: 36px 40px;
+            margin: 44px 0 24px;
+            text-align: center;
+        }
+        .blog-cta h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #FFFFFF;
+        }
+        .blog-cta p {
+            font-size: 0.95rem;
+            color: #A0A0A0;
+            margin-bottom: 22px;
+            line-height: 1.6;
+        }
+        .blog-cta .btn-red {
+            display: inline-block;
+            padding: 14px 36px;
+            text-decoration: none;
+            background: #D31E24;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .blog-cta .btn-red:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(211,30,36,0.4);
+        }
+        .blog-post-footer {
+            margin-top: 48px;
+            padding-top: 28px;
+            border-top: 1px solid rgba(255,255,255,0.07);
+        }
+        .blog-share {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+        .blog-share span {
+            font-size: 0.85rem;
+            color: #A0A0A0;
+            font-weight: 500;
+            margin-right: 6px;
+        }
+        .blog-share .share-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1px solid rgba(255,255,255,0.1);
+            background: transparent;
+            color: #A0A0A0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+        }
+        .blog-share .share-btn:hover {
+            background: rgba(255,255,255,0.07);
+            border-color: rgba(255,255,255,0.2);
+            color: #FFFFFF;
+        }
+        .blog-post-error {
+            text-align: center;
+            padding: 80px 20px;
+        }
+        .blog-post-error h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 14px;
+            color: #FFFFFF;
+        }
+        .blog-post-error p {
+            color: #A0A0A0;
+            margin-bottom: 28px;
+            font-size: 1.05rem;
+        }
+        .blog-post-error .btn-red {
+            display: inline-block;
+            padding: 14px 36px;
+            text-decoration: none;
+            background: #D31E24;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+        }
+        @media (max-width: 768px) {
+            .blog-post-container {
+                padding: 24px 16px 60px;
+            }
+            .blog-post-title {
+                font-size: 1.6rem;
+            }
+            .blog-post-meta {
+                gap: 14px;
+                font-size: 0.8rem;
+            }
+            .blog-post-body {
+                font-size: 0.98rem;
+            }
+            .blog-cta {
+                padding: 24px 20px;
+            }
+            .blog-cta h3 {
+                font-size: 1.1rem;
+            }
+        }
+        @media (max-width: 480px) {
+            .blog-post-title {
+                font-size: 1.3rem;
+            }
+            .blog-post-meta {
+                gap: 10px;
+                font-size: 0.75rem;
+            }
+            .blog-post-body {
+                font-size: 0.92rem;
+            }
+            .blog-cta {
+                padding: 20px 16px;
+            }
+            .blog-cta .btn-red {
+                padding: 12px 28px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header>
+        <nav>
+            <div class="logo">
+                <div class="logo-anim-wrap">
+                    <img src="assets/play-mode-logo.png" class="logo-frame logo-frame-0 active" alt="Play Mode Africa">
+                    <img src="assets/playMODE LOGO 1.png" class="logo-frame logo-frame-1" alt="Play Mode Africa">
+                    <img src="assets/plaYMODE LOGO 2.png" class="logo-frame logo-frame-2" alt="Play Mode Africa">
+                    <img src="assets/plaYMODE LOGO landscape colour 2.png" class="logo-frame logo-frame-3" alt="Play Mode Africa">
+                    <img src="assets/plaYMODE LOGO landscape colour 3.png" class="logo-frame logo-frame-4" alt="Play Mode Africa">
+                    <img src="assets/plaYMODE LOGO landscape colour 4.png" class="logo-frame logo-frame-5" alt="Play Mode Africa">
+                    <img src="assets/plaYMODE LOGO landscape colour 5.png" class="logo-frame logo-frame-6" alt="Play Mode Africa">
+                    <img src="assets/plaYMODE LOGO landscape colour 6.png" class="logo-frame logo-frame-7" alt="Play Mode Africa">
+                    <img src="assets/plaYMODE LOGO landscape colour 7.png" class="logo-frame logo-frame-8" alt="Play Mode Africa">
+                    <img src="assets/plaYMODE LOGO landscape.png" class="logo-frame logo-frame-9" alt="Play Mode Africa">
+                    <img src="assets/plaYMODE LOGO portrait col2.png" class="logo-frame logo-frame-10" alt="Play Mode Africa">
+                    <img src="assets/plaYMODE LOGO portrait.png" class="logo-frame logo-frame-11" alt="Play Mode Africa">
+                </div>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <i data-lucide="search" class="search-icon"></i>
+                <button class="btn-primary" onclick="window.open('https://youtube.com/@playmodeafrica?si=NJ54IRPjb3ruVmf7', '_blank')">Subscribe</button>
+                <div class="hamburger" id="hamburger">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ===== BLOG POST CONTENT ===== -->
+    <section class="blog-post-container" id="blogPostContainer">
+        <div class="blog-post-loading">
+            <div class="spinner"></div>
+            <span>Loading article...</span>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <img src="assets/play-mode-logo.png" alt="Play Mode Africa" class="footer-logo">
+                <p>Africa's leading media streaming platform. A subsidiary of Stream Guys Media.</p>
+                <div class="social-icons">
+                    <i data-lucide="facebook"></i>
+                    <i data-lucide="twitter"></i>
+                    <i data-lucide="instagram"></i>
+                    <i data-lucide="youtube"></i>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">Broadcasting</a></li>
+                    <li><a href="#">Live Streams</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="#">About Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Categories</h4>
+                <ul>
+                    <li><a href="#">Politics</a></li>
+                    <li><a href="#">Finance</a></li>
+                    <li><a href="#">Business</a></li>
+                    <li><a href="#">Technology</a></li>
+                    <li><a href="#">Health &amp; Climate</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="mailto:dummy@playmodeafrica.com">dummy@playmodeafrica.com</a></li>
+                    <li><a href="tel:07031114425">0703 111 4425</a></li>
+                    <li><a href="https://maps.google.com/?q=4+Presidential+drive+opposite+NOCEN+first+gate+Nsugbe+Anambra+State+Nigeria" target="_blank">4 Presidential drive, Nsugbe, Anambra, Nigeria</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Play Mode Africa. A subsidiary of <strong>Stream Guys Media</strong>.</p>
+        </div>
+    </footer>
+
+    <script src="blog-post.js"></script>
+    <script>lucide.createIcons();</script>
+</body>
+</html>
