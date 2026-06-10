@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | Play Mode Africa</title>
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="blog.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* FIX: Override logo animation issues */
+        .logo-anim-wrap {
+            position: relative;
+            height: 40px;
+            width: 140px;
+            overflow: hidden;
+        }
+        .logo-frame {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 40px;
+            width: auto;
+            object-fit: contain;
+            opacity: 0;
+            transition: opacity 0.8s ease;
+        }
+        .logo-frame.active {
+            opacity: 1;
+        }
+        /* Fix nav layout */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1380px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 35px;
+            align-items: center;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #FFFFFF;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+        .nav-links a:hover {
+            color: #D31E24;
+        }
+        .nav-links a.active {
+            color: #D31E24;
+        }
+        /* Fix logo display */
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header>
+        <nav>
+            <div class="logo">
+                <div class="logo-anim-wrap">
+                    <img src="assets/play-mode-logo.png" class="logo-frame logo-frame-0 active" alt="Play Mode Africa">
+                    <img src="assets/playMODE LOGO 1.png" class="logo-frame logo-frame-1" alt="Play Mode Africa">
+                    <img src="assets/plaYMODE LOGO 2.png" class="logo-frame logo-frame-2" alt="Play Mode Africa">
+                    <img src="assets/plaYMODE LOGO landscape colour 2.png" class="logo-frame logo-frame-3" alt="Play Mode Africa">
+                    <img src="assets/plaYMODE LOGO landscape colour 3.png" class="logo-frame logo-frame-4" alt="Play Mode Africa">
+                    <img src="assets/plaYMODE LOGO landscape colour 4.png" class="logo-frame logo-frame-5" alt="Play Mode Africa">
+                    <img src="assets/plaYMODE LOGO landscape colour 5.png" class="logo-frame logo-frame-6" alt="Play Mode Africa">
+                    <img src="assets/plaYMODE LOGO landscape colour 6.png" class="logo-frame logo-frame-7" alt="Play Mode Africa">
+                    <img src="assets/plaYMODE LOGO landscape colour 7.png" class="logo-frame logo-frame-8" alt="Play Mode Africa">
+                    <img src="assets/plaYMODE LOGO landscape.png" class="logo-frame logo-frame-9" alt="Play Mode Africa">
+                    <img src="assets/plaYMODE LOGO portrait col2.png" class="logo-frame logo-frame-10" alt="Play Mode Africa">
+                    <img src="assets/plaYMODE LOGO portrait.png" class="logo-frame logo-frame-11" alt="Play Mode Africa">
+                </div>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">Broadcasting</a></li>
+                <li><a href="#">Live Streams</a></li>
+                <li><a href="blog.html" class="active">Blog</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+            <div class="nav-actions">
+                <i data-lucide="search" class="search-icon"></i>
+                <button class="btn-primary" onclick="window.open('https://youtube.com/@playmodeafrica?si=NJ54IRPjb3ruVmf7', '_blank')">Subscribe</button>
+                <div class="hamburger" id="hamburger">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ===== BLOG HERO ===== -->
+    <section class="blog-hero">
+        <div class="container">
+            <span class="badge">Insights & Stories</span>
+            <h1>Play Mode Africa <span class="text-red">Blog</span></h1>
+            <p>Exploring the latest trends in digital media, broadcasting, and content creation across Africa.</p>
+        </div>
+    </section>
+
+    <!-- ===== BLOG GRID ===== -->
+    <section class="container blog-grid-section">
+        <div class="blog-grid" id="blogGrid">
+            <!-- Blog posts will be rendered here by JavaScript -->
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <img src="assets/play-mode-logo.png" alt="Play Mode Africa" class="footer-logo">
+                <p>Africa's leading media streaming platform. A subsidiary of Stream Guys Media.</p>
+                <div class="social-icons">
+                    <i data-lucide="facebook"></i>
+                    <i data-lucide="twitter"></i>
+                    <i data-lucide="instagram"></i>
+                    <i data-lucide="youtube"></i>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">Broadcasting</a></li>
+                    <li><a href="#">Live Streams</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="#">About Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Categories</h4>
+                <ul>
+                    <li><a href="#">Politics</a></li>
+                    <li><a href="#">Finance</a></li>
+                    <li><a href="#">Business</a></li>
+                    <li><a href="#">Technology</a></li>
+                    <li><a href="#">Health &amp; Climate</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="mailto:dummy@playmodeafrica.com">dummy@playmodeafrica.com</a></li>
+                    <li><a href="tel:07031114425">0703 111 4425</a></li>
+                    <li><a href="https://maps.google.com/?q=4+Presidential+drive+opposite+NOCEN+first+gate+Nsugbe+Anambra+State+Nigeria" target="_blank">4 Presidential drive, Nsugbe, Anambra, Nigeria</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Play Mode Africa. A subsidiary of <strong>Stream Guys Media</strong>.</p>
+        </div>
+    </footer>
+
+    <script src="blog.js"></script>
+    <script>lucide.createIcons();</script>
+</body>
+</html>

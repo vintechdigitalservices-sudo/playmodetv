@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en-NG">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Play Mode Africa & Stream Guys</title>
+    
+    <meta name="description" content="Discover Play Mode Africa, the premier destination for African entertainment, news, and lifestyle stories, powered by Stream Guys Media production company.">
+    <meta name="keywords" content="Play Mode Africa, Stream Guys, African news, African entertainment, lifestyle Africa, media production Nigeria, live streaming event coverage">
+    <meta name="author" content="Chukwuemeka Chimaobi Emmanuel">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Play Mode Africa">
+    <meta property="og:url" content="https://playmodetv.vercel.app/about.html">
+    <meta property="og:title" content="About Us | Play Mode Africa & Stream Guys Powerhouse">
+    <meta property="og:description" content="Your daily source for African entertainment, news, lifestyle trends, and top-tier media production solutions.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&q=80&w=1920">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css"> <link rel="stylesheet" href="about.css"> <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <a href="index.html" class="logo-anim-wrap">
+                    <img src="assets/play-mode-logo.png" class="logo-frame logo-frame-0 active" alt="Play Mode Africa">
+                    <img src="assets/playMODE LOGO 1.png" class="logo-frame logo-frame-1" alt="Play Mode Africa">
+                    <img src="assets/plaYMODE LOGO 2.png" class="logo-frame logo-frame-2" alt="Play Mode Africa">
+                    <img src="assets/plaYMODE LOGO landscape colour 2.png" class="logo-frame logo-frame-3" alt="Play Mode Africa">
+                    <img src="assets/plaYMODE LOGO landscape colour 3.png" class="logo-frame logo-frame-4" alt="Play Mode Africa">
+                    <img src="assets/plaYMODE LOGO landscape colour 4.png" class="logo-frame logo-frame-5" alt="Play Mode Africa">
+                    <img src="assets/plaYMODE LOGO landscape colour 5.png" class="logo-frame logo-frame-6" alt="Play Mode Africa">
+                    <img src="assets/plaYMODE LOGO landscape colour 6.png" class="logo-frame logo-frame-7" alt="Play Mode Africa">
+                    <img src="assets/plaYMODE LOGO landscape colour 7.png" class="logo-frame logo-frame-8" alt="Play Mode Africa">
+                    <img src="assets/plaYMODE LOGO landscape.png" class="logo-frame logo-frame-9" alt="Play Mode Africa">
+                    <img src="assets/plaYMODE LOGO portrait col2.png" class="logo-frame logo-frame-10" alt="Play Mode Africa">
+                    <img src="assets/plaYMODE LOGO portrait.png" class="logo-frame logo-frame-11" alt="Play Mode Africa">
+                </a>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html?filter=politics">News</a></li>
+                <li><a href="index.html?filter=sports">Entertainment</a></li>
+                <li><a href="index.html?filter=science">Lifestyle</a></li>
+                <li><a href="#playmode" class="nav-tab-btn active" data-target="pma-view">About Play Mode</a></li>
+                <li><a href="#streamguys" class="nav-tab-btn" data-target="sg-view">Stream Guys</a></li>
+                <li><a href="#footer-contact">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <i data-lucide="search" class="search-icon" id="headerSearchIcon"></i>
+                <a href="https://youtube.com/@playmodeafrica" target="_blank" rel="noopener" class="btn-primary">Subscribe</a>
+                <div class="hamburger" id="hamburger">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+
+            <!-- CUSTOM SEARCH OVERLAY BAR -->
+            <div class="custom-search-overlay" id="customSearchOverlay">
+                <form class="custom-search-form" id="customSearchForm">
+                    <input type="text" class="custom-search-input" id="customSearchInput" placeholder="Search Play Mode Africa (News, Entertainment, Videos)..." autocomplete="off">
+                    <button type="submit" class="custom-search-submit">
+                        <i data-lucide="search"></i>
+                    </button>
+                </form>
+                <button class="custom-search-close" id="customSearchClose">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <div id="pma-view" class="about-view-wrapper active">
+        <section class="about-hero">
+            <div class="about-hero-overlay"></div>
+            <div class="container about-hero-content animate-on-scroll">
+                <span class="badge">About Play Mode Africa</span>
+                <h1>Africa's Home for <br><span class="text-red">Entertainment, News & Lifestyle</span></h1>
+                <p>Discover stories, trends, conversations, and moments shaping Africa today. We bring the continent closer to you through premium updates and authentic narratives.</p>
+                <div class="about-hero-btns">
+                    <a href="#who-we-are" class="btn-red">Learn More</a>
+                    <a href="index.html" class="btn-outline">Explore Content</a>
+                </div>
+            </div>
+        </section>
+
+        <div class="datetime-bar">
+            <div class="datetime-inner">
+                <span class="datetime-item">
+                    <canvas class="globe-canvas" id="globeCanvasPMA" width="28" height="28"></canvas>
+                    <span class="date-display">LOADING...</span>
+                </span>
+                <span class="datetime-divider">|</span>
+                <span class="datetime-item">
+                    <i class="fa-regular fa-clock" style="color:var(--primary-red)"></i>
+                    <span class="time-display">--:-- --</span>
+                    <span class="tz-label">WAT</span>
+                </span>
+            </div>
+        </div>
+
+        <section id="who-we-are" class="about-section container">
+            <div class="about-grid">
+                <div class="about-image animate-on-scroll">
+                    <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&q=80&w=1920" alt="African Media Production">
+                </div>
+                <div class="about-text animate-on-scroll">
+                    <span class="category-accent">Who We Are</span>
+                    <h2>A Modern Platform for Continental Voices</h2>
+                    <p>Play Mode Africa is a forward-thinking digital media platform dedicated to informing, entertaining, and connecting audiences across Africa and beyond. We bring together news, entertainment, lifestyle stories, video content, and cultural conversations in one premium destination engineered for modern audiences.</p>
+                    <p>Whether it's a major headline, a trending topic, a sporting milestone, an inspiring human story, or a technological breakthrough, Play Mode Africa helps you stay completely updated on the things that matter most.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="about-section card-accent-bg">
+            <div class="container">
+                <div class="section-header animate-on-scroll">
+                    <h2>What We Cover</h2>
+                    <p>Comprehensive cultural coverage delivered straight to your digital ecosystem.</p>
+                </div>
+                <div class="coverage-grid">
+                    <div class="coverage-card animate-on-scroll">
+                        <div class="card-icon">🎬</div>
+                        <h3>Entertainment</h3>
+                        <p>Music, cinema, awards, exclusive celebrity insights, events, and modern pop culture trends.</p>
+                    </div>
+                    <div class="coverage-card animate-on-scroll">
+                        <div class="card-icon">📰</div>
+                        <h3>News</h3>
+                        <p>Timely updates and structural developments across various sectors impacting African nations.</p>
+                    </div>
+                    <div class="coverage-card animate-on-scroll">
+                        <div class="card-icon">🌍</div>
+                        <h3>Lifestyle</h3>
+                        <p>Deep-dives into heritage, African travel routes, functional wellness, fashion, and culinary art.</p>
+                    </div>
+                    <div class="coverage-card animate-on-scroll">
+                        <div class="card-icon">⚽</div>
+                        <h3>Sports</h3>
+                        <p>Major competitive coverage, global tournaments, individual player tracking, and strategic highlights.</p>
+                    </div>
+                    <div class="coverage-card animate-on-scroll">
+                        <div class="card-icon">🚀</div>
+                        <h3>Technology</h3>
+                        <p>Emerging tech ecosystems, continental venture tech, local innovations, and developmental milestones.</p>
+                    </div>
+                    <div class="coverage-card animate-on-scroll">
+                        <div class="card-icon">💼</div>
+                        <h3>Business</h3>
+                        <p>Entrepreneurial trajectories, market patterns, macroeconomic investments, and business growth tools.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="about-section container">
+            <div class="featured-story-block animate-on-scroll">
+                <div class="fs-block-content">
+                    <span class="category-accent">Why We Exist</span>
+                    <h2>Amplifying Unfiltered African Realities</h2>
+                    <p>Africa is home to extraordinary stories, unparalleled talent, explosive technical innovation, and immense cultural resourcefulness. Yet, wide-scale media platforms often leave these accounts underrepresented or narrow-focused.</p>
+                    <p>Play Mode Africa exists to balance the dynamic, providing space to spotlight local voices, document generation-defining moments, and present high-performance media content reflecting true continental development.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="about-section container">
+            <div class="mission-grid">
+                <div class="mission-card animate-on-scroll">
+                    <span class="card-icon-accent"><i class="fa-solid fa-bullseye"></i></span>
+                    <h3>Our Mission</h3>
+                    <p>To deliver engaging, informative, and impactful content that keeps multi-generational audiences deeply tethered to Africa's real-time stories, shifting cultures, and underlying economic opportunities.</p>
+                </div>
+                <div class="mission-card animate-on-scroll">
+                    <span class="card-icon-accent"><i class="fa-solid fa-eye"></i></span>
+                    <h3>Our Vision</h3>
+                    <p>To build a premiere digital ecosystem representing trusted information architecture, establishing our footprint as the most reliable publisher for African lifestyle, media assets, and news reporting.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="about-section container">
+            <div class="stream-guys-banner animate-on-scroll">
+                <span class="badge">Operational Powerhouse</span>
+                <h2>The Media Authority Behind Play Mode Africa</h2>
+                <p>Play Mode Africa is proudly operated and systematically powered by <strong>Stream Guys</strong>—a specialized media production entity committed to executing premium media coverage, live digital broadcasting, and functional video production infrastructure across the region.</p>
+                <button class="btn-red switch-to-sg">Explore Stream Guys Services &rarr;</button>
+            </div>
+        </section>
+    </div>
+
+    <div id="sg-view" class="about-view-wrapper">
+        <section class="sg-hero">
+            <div class="sg-hero-overlay"></div>
+            <div class="container sg-hero-content animate-on-scroll">
+                <span class="badge" style="background:#fff; color:#0d0d0d;">Stream Guys Media Company</span>
+                <h1 class="text-white">Creating, Capturing & <br>Broadcasting Stories That Matter</h1>
+                <p style="color: var(--text-light)">The creative production engine executing premium live broadcasts, multi-camera event coverage, high-end photography, and comprehensive enterprise media architecture.</p>
+                <div class="about-hero-btns">
+                    <a href="#sg-services" class="btn-red">Our Solutions</a>
+                    <a href="#footer-contact" class="btn-outline">Secure Media Coverage</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="sg-services" class="about-section container">
+            <div class="section-header animate-on-scroll">
+                <h2>Production Capacities</h2>
+                <p>High-tier technical execution for corporate networks, entertainment giants, and global events.</p>
+            </div>
+            <div class="coverage-grid">
+                <div class="coverage-card animate-on-scroll">
+                    <div class="card-icon"><i class="fa-solid fa-video text-red"></i></div>
+                    <h3>Event Coverage</h3>
+                    <p>Immersive multi-camera documentation for conferences, high-profile symposia, and live stage executions.</p>
+                </div>
+                <div class="coverage-card animate-on-scroll">
+                    <div class="card-icon"><i class="fa-solid fa-tower-broadcast text-red"></i></div>
+                    <h3>Live Streaming</h3>
+                    <p>High-definition web-broadcasting, stable low-latency transmission channels, and cross-platform multi-streaming.</p>
+                </div>
+                <div class="coverage-card animate-on-scroll">
+                    <div class="card-icon"><i class="fa-solid fa-clapperboard text-red"></i></div>
+                    <h3>Video Production</h3>
+                    <p>End-to-end commercial workflows, high-impact brand advertisements, documentary filmmaking, and clean post-production.</p>
+                </div>
+                <div class="coverage-card animate-on-scroll">
+                    <div class="card-icon"><i class="fa-solid fa-camera text-red"></i></div>
+                    <h3>Photography</h3>
+                    <p>High-resolution commercial photography, premium portrait systems, editorial tracking, and event documentation.</p>
+                </div>
+                <div class="coverage-card animate-on-scroll">
+                    <div class="card-icon"><i class="fa-solid fa-sliders text-red"></i></div>
+                    <h3>Content Creation</h3>
+                    <p>Polished short-form media, highly engaging podcast operations, and targeted multimedia formatting for global brands.</p>
+                </div>
+                <div class="coverage-card animate-on-scroll">
+                    <div class="card-icon"><i class="fa-solid fa-comments text-red"></i></div>
+                    <h3>Media Consulting</h3>
+                    <p>Strategic positioning advice, broadcast equipment pipeline design, and multi-channel system coordination.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="about-section card-accent-bg">
+            <div class="container about-grid">
+                <div class="about-text animate-on-scroll">
+                    <span class="category-accent">Our Vision & Audience</span>
+                    <h2>Elevating Media Quality Across the African Market</h2>
+                    <p>Our vision is to remain a leading African media entity delivering cutting-edge technical production and deployment pathways that amplify foundational narratives and deeply connect target audiences.</p>
+                    <blockquote class="sg-quote">
+                        "We actively build high-performance systems for corporations, institutions, large-scale events, religious ministries, commercial brands, and individuals seeking elite technical execution."
+                    </blockquote>
+                </div>
+                <div class="about-image animate-on-scroll">
+                    <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&q=80&w=800" alt="Professional Camera Rig">
+                </div>
+            </div>
+        </section>
+
+        <section class="about-section container">
+            <div class="stream-guys-banner animate-on-scroll" style="border-color: rgba(255,255,255,0.15)">
+                <span class="category-accent">Let's Work Together</span>
+                <h2>Need Premium Media Coverage For Your Next Big Venture?</h2>
+                <p>Allow our professional crew to deploy reliable equipment arrays, capture immaculate visuals, and stream your message directly to global scale frameworks.</p>
+                <div class="about-hero-btns" style="justify-content: center; margin-top: 25px;">
+                    <a href="mailto:dummy@playmodeafrica.com?subject=Stream%20Guys%20Quote%20Request" class="btn-red">Request Production Quote</a>
+                    <a href="#footer-contact" class="btn-outline">Contact Crew</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <section class="about-section container border-top-divider">
+        <div class="final-cta animate-on-scroll">
+            <h2>Stay Plugged Into African Culture</h2>
+            <p>Access uninterrupted updates, unique perspectives, and technical production insights straight from the heart of the media grid.</p>
+            <div class="about-hero-btns" style="justify-content: center; margin-top: 30px;">
+                <a href="index.html" class="btn-red">Browse Content Feed</a>
+                <button class="btn-outline switch-to-sg">View Production Portal</button>
+            </div>
+        </div>
+    </section>
+
+    <footer id="footer-contact">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <img src="assets/play-mode-logo.png" alt="Play Mode Africa" class="footer-logo">
+                <p>Africa's leading entertainment, news, and lifestyle destination. Proudly powered by Stream Guys Media production ecosystem.</p>
+                <div class="social-icons">
+                    <i data-lucide="facebook"></i>
+                    <i data-lucide="twitter"></i>
+                    <i data-lucide="instagram"></i>
+                    <i data-lucide="youtube"></i>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Access</h4>
+                <ul>
+                    <li><a href="index.html">Home Feed</a></li>
+                    <li><a href="index.html?filter=politics">News Hub</a></li>
+                    <li><a href="index.html?filter=sports">Entertainment</a></li>
+                    <li><a href="#pma-view" class="switch-to-pma-pure">About Platform</a></li>
+                    <li><a href="#sg-view" class="switch-to-sg-pure">Stream Guys Crew</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Core Coverage</h4>
+                <ul>
+                    <li><a href="index.html?filter=politics">Politics</a></li>
+                    <li><a href="index.html?filter=finance">Finance</a></li>
+                    <li><a href="index.html?filter=business">Business Core</a></li>
+                    <li><a href="index.html?filter=technology">Tech Future</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Production Desk</h4>
+                <ul>
+                    <li><a href="mailto:dummy@playmodeafrica.com">dummy@playmodeafrica.com</a></li>
+                    <li><a href="tel:07031114425">0703 111 4425</a></li>
+                    <li><span style="font-size:0.9rem; color:var(--text-grey);">4 Presidential Drive, Nsugbe, Anambra</span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Play Mode Africa. Engineered and Operated by <strong>Stream Guys Media</strong>.</p>
+        </div>
+    </footer>
+
+    <script src="about.js"></script>
+    <script>lucide.createIcons();</script>
+</body>
+</html>

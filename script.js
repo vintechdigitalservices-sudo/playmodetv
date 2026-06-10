@@ -656,8 +656,44 @@ window.addEventListener('scroll', () => {
     rafId = requestAnimationFrame(checkVisibility);
 }, { passive: true });
 
-// ===== INIT =====
+// ===== SEARCH FUNCTIONALITY (INTEGRATED) =====
 document.addEventListener('DOMContentLoaded', () => {
     loadAllContent();
     setTimeout(checkVisibility, 600);
+    
+    // Search functionality - same as working watch page
+    const searchIcon = document.getElementById('headerSearchIcon');
+    const searchOverlay = document.getElementById('customSearchOverlay');
+    const searchClose = document.getElementById('customSearchClose');
+    const searchForm = document.getElementById('customSearchForm');
+    const searchInput = document.getElementById('customSearchInput');
+
+    if (searchIcon && searchOverlay && searchClose && searchForm && searchInput) {
+        searchIcon.addEventListener('click', function(e) {
+            e.preventDefault();
+            searchOverlay.classList.add('active');
+            searchInput.focus();
+        });
+
+        searchClose.addEventListener('click', function() {
+            searchOverlay.classList.remove('active');
+            searchInput.value = '';
+        });
+
+        searchForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const searchQuery = searchInput.value;
+            if (searchQuery && searchQuery.trim() !== "") {
+                window.location.href = `search.html?q=${encodeURIComponent(searchQuery.trim())}`;
+            }
+        });
+
+        // Close search overlay on Escape key down
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && searchOverlay.classList.contains('active')) {
+                searchOverlay.classList.remove('active');
+                searchInput.value = '';
+            }
+        });
+    }
 });
